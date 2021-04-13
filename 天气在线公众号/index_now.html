@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>首页</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/swiper.min.css" />
+  <link rel="stylesheet" href="js/layui/css/layui.css" />
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+</head>
+<style type="text/css">
+    .layui-layer{
+        border-radius: 0px !important;
+    }
+    .section{
+        background: #e7eef7;
+    }
+    .layui-form-switch em{
+      color: #fff !important;
+    }
+</style>
+<body>
+
+    <div class="section">
+        <!-- 适应背景将气象元素与48小时预报合并 -->
+        <div class="index_bt">
+            <!-- 气象元素 -->
+            <div class="index_bt_nr">
+                <div class="bt_nr_city" onclick="window.location.href='index_search1.html'">
+                    <img class="dw" src="images/dw.png">
+                    <span id="city_name">重庆·渝中·大坪正街</span>
+                    <i>+</i>
+                    <img class="svip" src="images/svip.png">
+                </div>
+
+                <div class="bt_nr_share">
+                    <img src="images/share.png">
+                </div>
+
+                <div class="bt_nr_ssd">
+                    <span>36°</span>
+                    <i>晴</i>
+                    <p>热度日</p>
+                </div>
+
+                <div class="bt_nr_time swiper-container">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide" onclick="window.location.href='index_query.html'">
+                            <p>2019年2月</p>
+                            <span>18日</span>
+                            <i>星期一</i>
+                        </li>
+                        <li class="swiper-slide" onclick="window.location.href='index_query.html'">
+                            <p>2019年2月</p>
+                            <span>18日</span>
+                            <i>星期一</i>
+                        </li>
+                        <li class="swiper-slide" onclick="window.location.href='index_query.html'">
+                            <p>2019年2月</p>
+                            <span>18日</span>
+                            <i>星期一</i>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bt_nr_ys">
+                    <ul>
+                        <li>
+                            <img src="images/ys_tg.png">
+                            <span>体感温度</span>
+                            <p>19°</p>
+                        </li>
+                        <li>
+                            <img src="images/ys_sd.png">
+                            <span>空气湿度</span>
+                            <p>80%</p>
+                        </li>                     
+                        <li>
+                        </li>
+                        <li>
+                            <img src="images/ys_jy.png">
+                            <span>降雨量</span>
+                            <p>12mm</p>
+                        </li>
+                        <li>
+                            <img src="images/ys_gl.png">
+                            <span>降雨概率</span>
+                            <p>58%</p>
+                        </li>
+                        <li>
+                            <img src="images/ys_fx.png">
+                            <span>东北风</span>
+                            <p>2级</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 48小时预报 -->
+            <div class="index_fe_hour">
+                <div class="index_tq_bt">
+                    <span>48小时预报</span>
+                    <i class="fa fa-angle-right" onclick="window.location.href='index_st_hour1.html'"></i>
+                </div>
+                <div class="index_hour_nr_z">
+                    <div class="index_hour_nr">
+                        <ul>
+                            <li>
+                                <span>现在</span>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                            </li>
+                            <li>
+                                <span>19:00</span>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                            </li>
+                            <li>
+                                <span>20:00</span>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                            </li>
+                            <li>
+                                <span>23:00</span>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                            </li>
+                            <li>
+                                <span>2:00</span>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                            </li>
+                            <li>
+                                <span>5:00</span>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                            </li><li>
+                                <span>8:00</span>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                            </li>
+                            <li>
+                                <span>多云</span>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                            </li>
+                            <li>
+                                <span>多云</span>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                            </li>
+                            <li>
+                                <span>多云</span>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                            </li>
+                            <li>
+                                <span>多云</span>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                            </li>
+                            <li>
+                                <span>多云</span>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                            </li><li>
+                                <span>多云</span>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                            </li>
+                            <li>
+                                <span>多云</span>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                            </li>
+                            <li>
+                                <span>多云</span>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 15天预报 -->
+        <div class="index_fifteen_day">
+            <div class="index_tq_bt">
+                <span>15天预报</span>
+                <div class="tq_dh">
+                    <div class="layui-form">
+                        <div class="layui-input-block" style="margin-left: 0px;">
+                          <input type="checkbox" name="close" lay-skin="switch" lay-filter="switchTest" lay-text="折线图|柱状图">
+                        </div>
+                    </div>
+                </div>
+                <i class="fa fa-angle-right" onclick="window.location.href='index_fifteen_day1.html'"></i>
+            </div>
+            <div class="index_day_nr_z">
+                <div class="index_day_nr">
+                    <ul>
+                        <li>
+                            <span>周四</span>
+                            <p>今天</p>
+                            <img src="images/weather/lan/晴.png">
+                            <i>12°</i>
+                            <i class="day_bottom">12°</i>
+                            <a href="#">优</a>
+                        </li>
+                        <li>
+                            <span>周四</span>
+                            <p>今天</p>
+                            <img src="images/weather/lan/晴.png">
+                            <i>12°</i>
+                            <i class="day_bottom">12°</i>
+                            <a href="#">优</a>
+                        </li>
+                        <li>
+                            <span>周四</span>
+                            <p>今天</p>
+                            <img src="images/weather/lan/晴.png">
+                            <i>12°</i>
+                            <i class="day_bottom">12°</i>
+                            <a href="#">优</a>
+                        </li>
+                        <li>
+                            <span>周四</span>
+                            <p>今天</p>
+                            <img src="images/weather/lan/晴.png">
+                            <i>12°</i>
+                            <i class="day_bottom">12°</i>
+                            <a href="#">优</a>
+                        </li>
+                        <li>
+                            <span>周四</span>
+                            <p>今天</p>
+                            <img src="images/weather/lan/晴.png">
+                            <i>12°</i>
+                            <i class="day_bottom">12°</i>
+                            <a href="#">优</a>
+                        </li>
+                        <li>
+                            <span>周四</span>
+                            <p>今天</p>
+                            <img src="images/weather/lan/晴.png">
+                            <i>12°</i>
+                            <i class="day_bottom">12°</i>
+                            <a href="#">优</a>
+                        </li>
+                    </ul>
+                    <div class="day_qh">
+                        <div class="day_list day_15_chart" id="day_15_chart"></div>
+                        <div class="day_list day_b_chart">
+                            <ul>
+                                <li>
+                                    <div class="day_zhu">
+                                        <p class="zhu_nr"></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 日出日落 -->
+        <div class="index_sunrise_sunset">
+            <div class="index_tq_bt" style="margin-bottom: 0.4166666667rem">
+                <span>日出日落</span>
+            </div>
+
+            <div class="index_sunrise_nr" id="index_sunrise_nr">
+                <div class="sun_center">
+                    <div class="weather" id="test">
+                    </div>
+                    
+                    <div class="sun_rc">
+                        <img src="images/rc_bj.png">
+                        <div class="rc_bj">
+                            <span>日出 5:00</span>
+                        </div>
+                    </div>
+                    <div class="sun_rl">
+                        <img src="images/rc_bj.png">
+                        <div class="rl_bj">
+                            <span>日落 18:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sun_zi">
+                <p>00:00</p>
+            </div>
+            <div class="sun_left">
+                <p>00:00</p>
+            </div>
+            <div class="sun_right">
+                <p>24:00</p>
+            </div>
+        </div>
+        <!-- 导航 -->
+        <div class="index_dh">
+            <ul>
+                <li onclick="window.location.href='personal.html'">加入会员</li><p></p>
+                <li onclick="window.location.href='about.html'">联系我们</li><p></p>
+                <li>意见反馈</li>
+            </ul>
+        </div>
+    </div>
+	
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/echarts.common.min.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/mobile.js"></script>
+<script type="text/javascript" src="js/layui/layui.js"></script>
+
+
+<script type="text/javascript">
+
+    $(function(){
+        var mySwiper = new Swiper('.bt_nr_time',{
+            loop: true,
+            autoplay:5000,
+            speed:1000,
+        });
+
+        $('.day_qh .day_list').eq(0).show();
+        
+        var a=[[3,5],[5,6],[4,8],[3,5],[5,6],[4,8]];
+
+        zhu_nr(a);
+
+        day_15_chart();
+
+        time();
+    
+    });
+
+    function zhu_nr(index){
+        var index = index;
+        var ta=index.join(",").split(",");
+        console.log(index);
+        var Maxindex = Math.max.apply(null, ta);//最大值
+        var Minindex = Math.min.apply(null, ta);//最小
+
+        var Listindex = 100/(Maxindex - Minindex);//每一度占的百分比
+        var cont_z = '';
+        for(j = 0;j<index.length; j++) {
+            var Height = (index[j][1] - index[j][0]) * Listindex;//每项数据高度的百分比
+            var Top = (Maxindex - index[j][1]) * Listindex;//每项数据向下偏移的百分比
+            console.log('最小：'+index[j][0]+'最大：'+index[j][1]);
+            console.log(Top+'+'+Height);
+            
+            var cont= '<li><div class="day_zhu"><p style="top:'+Top+'%;height:'+Height+'%" class="zhu_nr"></p></div></li>';
+
+            cont_z += cont;
+        }
+        
+        cont_z = '<ul>' + cont_z + '</ul>';
+        $(".day_b_chart").html(cont_z);
+    }
+
+
+
+    function time(){
+        var myDate = new Date;
+        var h = myDate.getHours();
+        var m = myDate.getMinutes();
+        var b = h/24;
+        var f = h*(180/24);
+        var rc = 5;
+        var rl = 18;
+        var deg = h*(165/24);//当前转动度数
+        $('.sun_zi p').html(h+':'+m);
+        $('.sun_zi').css({'left':b*100-6+'%'});//当前时间横向高度
+        if(h<rc || h>rl){
+            $('.weather').css({'display':'none'});//判断日出前 日落后  不显示
+        };
+        $('.weather').css({'transform':'rotate('+deg+'deg)'});//当前转动度数
+        // $('.weather').addClass('weather'+h+'');//太阳纵向高度
+        $('.sun_rc').css({'left':(rc/24)*100-5+'%'});//太阳横向高度
+        $('.sun_rc').addClass('weather'+rc+'');//太阳纵向高度
+        $('.sun_rl').css({'left':(rl/24)*100-5+'%'});//太阳横向高度
+        $('.sun_rl').addClass('weather'+rl+'');//太阳纵向高度
+    }
+
+    function day_15_chart(){
+        /*15天天气预报*/
+        myChart = echarts.init(document.getElementById("day_15_chart"));
+
+        myChart.setOption({
+                    color: ['#9fccff'],
+                    grid: {
+                        top: '40%',
+                        left: '0%',
+                        right: '0%',
+                        bottom: '20%',
+                    },
+                    xAxis: [
+                        {
+                            show: false,
+                            type: 'category',
+                            splitLine: {
+                                show: true,
+                            },
+                            axisLine: {
+                                onZero: false,
+                            }
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            show: false,
+                            type: 'value',
+                            splitLine: {
+                                show: true,
+                            },
+                            axisLine: {
+                                onZero: false,
+                            }
+                        }
+                    ],
+                    series: [
+                        {
+                            name: '高温',
+                            type: 'line',
+                            data: [5,6,8,5,6,8],
+                            symbolSize: 7,
+                            smooth:true,
+                            itemStyle: {
+                                normal: {
+                                    color: "#ffc500",//折线点的颜色
+                                    lineStyle: {
+                                        color: '#ffc500',
+                                        width: 2,
+                                    }
+                                }
+                            },
+                            label: {
+                                show: true,
+                                position: 'top',
+                                color: '#ffc500',
+                                shadowBlur: 2,
+                                shadowColor: 'black',
+                                shadowOffsetX: 2,
+                                formatter: "{c}℃",
+                                textStyle:{fontSize:15}
+                            },
+                        },
+                        {
+                            name: '低温',
+                            type: 'line',
+                            data: [1,1,1,1,1,1],
+                            symbolSize: 7,
+                            smooth:true,
+                            itemStyle: {
+                                normal: {
+                                    color: "#287dd0",//折线点的颜色
+                                    lineStyle: {
+                                        color: '#287dd0',
+                                        width: 2,
+                                    }
+                                }
+                            },
+                            label: {
+                                show: true,
+                                position: 'bottom',
+                                color: '#287dd0',
+                                shadowBlur: 2,
+                                shadowColor: 'black',
+                                shadowOffsetX: 2,
+                                formatter: "{c}℃",
+                                textStyle:{fontSize:15},
+                            },
+                        }
+                    ]
+                })
+    }
+
+
+    //关闭弹窗
+    function closef(){
+        layer.close();
+    }
+
+     /*引用layui*/
+    layui.use(['form', 'layedit', 'laydate','element','layer'], function(){
+      var form = layui.form
+      ,layer = layui.layer
+      ,layedit = layui.layedit
+      ,laydate = layui.laydate
+      ,$ = layui.jquery
+      ,element = layui.element;
+      
+      //切换柱状图 折线图
+      form.on('switch(switchTest)', function (data) {
+            if(this.checked ==true){
+                 $('.day_qh .day_list').hide();
+                 $('.day_qh .day_list').eq(1).show();
+            }else{
+                 $('.day_qh .day_list').hide();
+                 $('.day_qh .day_list').eq(0).show();
+            }
+        });
+    })
+</script>

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>48小时天气预报</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/swiper.min.css" />
+  <link rel="stylesheet" href="js/layui/css/layui.css" />
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="section">
+        <div class="st_bt">
+            
+        </div>
+    </div>
+	
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/echarts.common.min.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/mobile.js"></script>
+<script type="text/javascript" src="js/layui/layui.js"></script>
+
+
+<script type="text/javascript">
+
+    $(function(){
+        //温度
+        hour_48_chart();
+
+        //降水
+        fifteen_js_chart();
+
+        //风速风向
+        fifteen_fx_chart();
+
+        //日照
+        fifteen_rz_chart();
+    
+    });
+    //温度
+    function hour_48_chart(){
+        /*48小时天气预报*/
+        myChart = echarts.init(document.getElementById("hour_48_chart"));
+
+        var option ={
+            color: ['#629ae5'],
+            grid: {
+                top: '15%',
+                left: '0%',
+                right: '0%',
+                bottom: '0%',
+            },
+            tooltip: {
+                trigger: 'item',
+                backgroundColor: 'rgba(255,255,255,1)',  // 提示背景颜色，默认为透明度为0.7的黑色
+                borderColor: '#333',            // 提示边框颜色
+                borderRadius: 4,                // 提示边框圆角，单位px，默认为4
+                borderWidth: 0,                // 提示边框线宽，单位px，默认为0（无边框）
+                extraCssText:'box-shadow:0 0 10px rgba(0,0,0,0.4);',
+                axisPointer : {                 // 坐标轴指示器，坐标轴触发有效
+                    type : 'shadow',  
+                    // 默认为直线，可选为：'line' | 'shadow'
+                    shadowStyle : {              // 阴影指示器样式设置
+                        width: 'auto',         // 阴影大小
+                        color: 'rgba(0,0,0,0.05)',// 阴影颜色
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10  
+                    }
+                }, 
+                formatter: '{a}',//https://www.echartsjs.com/zh/option.html#tooltip.formatter
+                textStyle: {
+                    color: '#000'
+                }            
+            },
+            xAxis: [
+                {
+                    show: false,
+                    type: 'category',
+                }
+            ],
+            yAxis: [
+                {
+                    show: false,
+                    type: 'value',
+                }
+            ],
+            series: [
+                {
+                    name: '高温',
+                    type: 'line',
+                    smooth: true,
+                    areaStyle: {normal: {
+                        lineStyle:{  
+                            color:'rgba(237,207,125,1)'  
+                        },  
+                        color: new echarts.graphic.LinearGradient(
+                                0, 0, 0, 1,
+                                [
+                                    {offset: 0, color: 'rgba(82,192,251,0.5)'},
+                                    {offset: 0.3, color: 'rgba(82,192,251,0.3)'},
+                                    {offset: 1, color: 'rgba(82,192,251,0)'}
+                                ]
+                        )
+                    }},
+                    data: [8, 11, 14,11, 8, 11,14, 8, 11,14],
+                }
+            ]
+        }
+        myChart.setOption(option);
+    }
+
+    //降水 柱状图折线图结合
+    function fifteen_js_chart(){
+        myChart1 = echarts.init(document.getElementById("fifteen_js_chart"));
+        var option = {
+            color: ['#52BEDB'], //柱状图的颜色
+            legend: {
+                data:['降雨量','降雨概率'],
+                x: 'right',
+                y:'top',
+                show:true,
+                textStyle: {
+                    color: '#76b0c7'                              // 图例文字颜色
+                },
+                data:[
+                    {
+                        name:'降雨量',
+                        textStyle:{
+                            fontSize:12,
+                            color:'#666'
+                        },
+                        icon:'roundRect'
+                    },
+                    {
+                        name:'降雨概率',
+                        textStyle:{
+                            fontSize:12,
+                            color:'#666'
+                        },
+                        icon:'roundRect'
+                    }
+                ]
+            },
+            dataZoom: [
+                {
+                    show: false,
+                    realtime: true,
+                    start: 0,
+                    end: 60,
+                },
+                {
+                    type: 'inside',
+                    realtime: true,
+                    start: 0,
+                    end: 60,
+
+                }
+            ],
+            tooltip: {
+                trigger: 'axis',
+                backgroundColor: 'rgba(255,255,255,1)',  // 提示背景颜色，默认为透明度为0.7的黑色
+                borderColor: '#333',            // 提示边框颜色
+                borderRadius: 4,                // 提示边框圆角，单位px，默认为4
+                borderWidth: 0,                // 提示边框线宽，单位px，默认为0（无边框）
+                padding: 15,
+                extraCssText:'box-shadow:0 0 10px rgba(0,0,0,0.4);',
+                axisPointer: {
+                     type: 'cross',
+                     crossStyle: {
+                         type: 'dashed'                          
+                     },
+                },
+                formatter: function(val){
+                    var w='';
+                    for(var i=0;i<val.length;i++){
+                        w+=val[i].marker +val[i].seriesName+':'+val[i].data+'<br />';
+                    }
+                    return val[0].axisValue+'<br />'+w;
+                },
+                textStyle: {
+                    color: '#000'
+                }               
+            },
+            xAxis: { // x轴的设置
+                name: '',
+                nameLocation: 'start',
+                boundaryGap: false,
+                nameTextStyle: {                    
+                    fontSize: 16,
+                    padding: [35,0,0,10],
+                    color: '#5db2d3'            
+                },
+                axisLabel: {   //坐标轴文本标签
+                    show: true,
+                    interval: 'auto',
+                    rotate: 0,
+                    margin: 10,
+                    // formatter: null,
+                    textStyle: {// 其余属性默认使用全局文本样式
+                        color: '#c2c2c2',
+                        fontSize: 15,
+                    }
+                },
+                axisLine: { // y轴线
+                    show: true,         // 默认显示，属性show控制显示与否
+                    lineStyle: {        // 属性lineStyle控制线条样式
+                        color: '#c2c2c2',
+                        width: 1,
+                        type: 'solid'
+                    }
+                },
+                data: ["15% 86mm","15% 86mm","15% 86mm","15% 86mm","15% 86mm","15% 86mm","15% 86mm","15% 86mm","15% 86mm","15% 86mm"],
+                axisLabel:{
+                    formatter : function(params){
+                       var newParamsName = "";// 最终拼接成的字符串
+                                var paramsNameNumber = params.length;// 实际标签的个数
+                                var provideNumber = 4;// 每行能显示的字的个数
+                                var rowNumber = Math.ceil(paramsNameNumber / provideNumber);// 换行的话，需要显示几行，向上取整
+                                /**
+                                 * 判断标签的个数是否大于规定的个数， 如果大于，则进行换行处理 如果不大于，即等于或小于，就返回原标签
+                                 */
+                                // 条件等同于rowNumber>1
+                                if (paramsNameNumber > provideNumber) {
+                                    /** 循环每一行,p表示行 */
+                                    for (var p = 0; p < rowNumber; p++) {
+                                        var tempStr = "";// 表示每一次截取的字符串
+                                        var start = p * provideNumber;// 开始截取的位置
+                                        var end = start + provideNumber;// 结束截取的位置
+                                        // 此处特殊处理最后一行的索引值
+                                        if (p == rowNumber - 1) {
+                                            // 最后一次不换行
+                                            tempStr = params.substring(start, paramsNameNumber);
+                                        } else {
+                                            // 每一次拼接字符串并换行
+                                            tempStr = params.substring(start, end) + "\n";
+                                        }
+                                        newParamsName += tempStr;// 最终拼成的字符串
+                                    }
+
+                                } else {
+                                    // 将旧标签的值赋给新标签
+                                    newParamsName = params;
+                                }
+                                //将最终的字符串返回
+                                return newParamsName
+                    }
+                }
+
+            },
+            grid: {
+                left: '5%',
+                right: '5%',
+                bottom: '1%',
+                top:'25%',
+                containLabel: true
+            },
+            yAxis: [
+                { //y轴的设置
+                    name: '(mm)',
+                    min: 0, //y轴刻度设置，区间为200-650
+                    max: 150,
+                    interval:30,  //递增50
+                    nameTextStyle: {                    
+                        fontSize: 14,
+                        color: '#707070',   
+                    },
+                    axisLine: { // y轴线
+                        show: true,         // 默认显示，属性show控制显示与否
+                        lineStyle: {        // 属性lineStyle控制线条样式
+                            color: '#c2c2c2',
+                            width: 1,
+                            type: 'solid'
+                        }
+                    },
+                    splitLine: { //y轴网格
+                        show: false
+                    },    
+                    axisTick: { //y轴刻度线
+                        show: false
+                    }   
+                },
+                { //y轴的设置
+                    name: '(%)',
+                    min: 0, //y轴刻度设置，区间为200-650
+                    max: 100,
+                    interval:20,  //递增50
+                    nameTextStyle: {                    
+                        fontSize: 14,
+                        color: '#707070',        
+                    },
+                    axisLine: { // y轴线
+                        show: true,         // 默认显示，属性show控制显示与否
+                        lineStyle: {        // 属性lineStyle控制线条样式
+                            color: '#c2c2c2',
+                            width: 1,
+                            type: 'solid'
+                        }
+                    },
+                    splitLine: { //y轴网格
+                        show: true,
+                        lineStyle:{
+                            color:'#f1f1f1',
+                        }
+                    },    
+                    axisTick: { //y轴刻度线
+                        show: false
+                    }   
+                },
+            ],
+            series: [{ //这里定义要显示的图形
+                name: '降雨量',
+                type: 'bar', //柱状图
+                barWidth:14,
+                itemStyle: {
+                    normal: {
+                        color:'#52c0fb',
+                        barBorderRadius: [10, 10, 0, 0],
+                    }
+                },
+                data: [20, 10, 50, 100, 120, 30,20, 10, 50, 100, 120, 30]
+            },
+            {
+                name:'降雨概率',
+                type:'line', //折线图
+                symbolSize:6,
+                smooth: true,
+                symbol: 'circle', //点的样式为正方形
+                itemStyle : {  /*设置折线颜色*/
+                    normal : {
+                        color:'#9a7fea',
+                        shadowColor: 'rgba(0,0,0,0.4)',
+                        shadowBlur: 5,
+                        shadowOffsetY: 5
+                    }
+                },
+                areaStyle: {normal: {
+                    lineStyle:{  
+                        color:'rgba(237,207,125,1)'  
+                    },  
+                    color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1,
+                            [
+                                {offset: 0, color: 'rgba(154,127,234,0.3)'},
+                                {offset: 0.2, color: 'rgba(154,127,234,0.3)'},
+                                {offset: 1, color: 'rgba(154,127,234,0)'}
+                            ]
+                    )
+                }},
+                data:[80, 20, 60, 90, 92, 30,20, 10, 50, 100, 120, 30]
+            }]              
+        }
+        myChart1.setOption(option);
+    }
+
+    //风速风向
+    function fifteen_fx_chart(){
+        myChart = echarts.init(document.getElementById("fifteen_fx_chart"));
+        var option = {
+            color: ['#52BEDB'], //柱状图的颜色
+            legend: {
+                data:['平均风速','最大风速','风向'],
+                x: 'center',
+                y:'10',
+                show:true,
+                textStyle: {
+                    color: '#76b0c7'
+                },
+                data:[
+                    {
+                        name:'平均风速',
+                        textStyle:{
+                            fontSize:12,
+                            color:'#666'
+                        },
+                        icon:'roundRect'
+                    },
+                    {
+                        name:'最大风速',
+                        textStyle:{
+                            fontSize:12,
+                            color:'#666'
+                        },
+                        icon:'roundRect'
+                    }
+                ]
+            },
+            dataZoom: [
+                {
+                    show: false,
+                    realtime: true,
+                    start: 0,
+                    end: 40,
+                },
+                {
+                    type: 'inside',
+                    realtime: true,
+                    start: 0,
+                    end: 60,
+
+                }
+            ],
+            tooltip: {
+                trigger: 'axis',
+                backgroundColor: 'rgba(255,255,255,1)',  // 提示背景颜色，默认为透明度为0.7的黑色
+                borderColor: '#333',            // 提示边框颜色
+                borderRadius: 4,                // 提示边框圆角，单位px，默认为4
+                borderWidth: 0,                // 提示边框线宽，单位px，默认为0（无边框）
+                padding: 15,
+                extraCssText:'box-shadow:0 0 10px rgba(0,0,0,0.4);',
+                axisPointer: {
+                     type: 'cross',
+                     crossStyle: {
+                         type: 'dashed'                          
+                     },
+                },
+                formatter: function(val){
+                    var w='';
+                    for(var i=0;i<val.length;i++){
+                        w+=val[i].marker +val[i].seriesName+':'+val[i].data+'<br />';
+                    }
+                    return val[0].axisValue+'<br />'+w;
+                },
+                textStyle: {
+                    color: '#000'
+                }               
+            },
+            xAxis: { // x轴的设置
+                name: '',
+                nameLocation: 'start',
+                boundaryGap: false,
+                nameTextStyle: {                    
+                    fontSize: 16,
+                    padding: [35,0,0,10],
+                    color: '#5db2d3'            
+                },
+                axisLabel: {   //坐标轴文本标签
+                    show: true,
+                    interval: 'auto',
+                    rotate: 0,
+                    margin: 10,
+                    // formatter: null,
+                    textStyle: {// 其余属性默认使用全局文本样式
+                        color: '#c2c2c2',
+                        fontSize: 15,
+                    }
+                },
+                axisLine: { // y轴线
+                    show: true,         // 默认显示，属性show控制显示与否
+                    lineStyle: {        // 属性lineStyle控制线条样式
+                        color: '#c2c2c2',
+                        width: 1,
+                        type: 'solid'
+                    }
+                },
+                data: ["1/22","1/22","1/22","1/22","1/22","1/22","1/22","1/22","1/22","1/22","1/22","1/22","1/22","1/22","1/22"],
+                axisLabel:{
+                    show:true
+                }
+
+            },
+            grid: {
+                left: '2%',
+                right: '2%',
+                bottom: '4%',
+                top:'25%',
+                containLabel: true
+            },
+            yAxis: [
+                { //y轴的设置
+                    name: '0m/s',
+                    min: 0, //y轴刻度设置，区间为200-650
+                    max: 50,
+                    interval:10,  //递增50
+                    nameTextStyle: {                    
+                        fontSize: 14,
+                        color: '#707070',        
+                    },
+                    axisLine: { // y轴线
+                        show: true,         // 默认显示，属性show控制显示与否
+                        lineStyle: {        // 属性lineStyle控制线条样式
+                            color: '#c2c2c2',
+                            width: 1,
+                            type: 'solid'
+                        }
+                    },
+                    splitLine: { //y轴网格
+                        show: true,
+                        lineStyle:{
+                            color:'#f1f1f1',
+                        }
+                    },    
+                    axisTick: { //y轴刻度线
+                        show: false
+                    }   
+                },
+            ],
+            series: [
+            {
+                name:'平均风速',
+                type:'line', //折线图
+                symbolSize:4,
+                smooth: true,
+                symbol: 'circle', //点的样式为正方形
+                itemStyle : {  /*设置折线颜色*/
+                    normal : {
+                        color:'#fdb082',
+                    }
+                },
+                areaStyle: {
+                    normal: {
+                        lineStyle:{   
+                        },  
+                        color: new echarts.graphic.LinearGradient(
+                                0, 0, 0, 1,
+                                [
+                                    {offset: 0, color: 'rgba(247,175,127,0.3)'},
+                                    {offset: 0.2, color: 'rgba(247,175,127,0.2)'},
+                                    {offset: 1, color: 'rgba(247,175,127,0)'}
+                                ]
+                        )
+                    },
+                    origin:'start',
+                },
+                data:[30,35,35,34,35,35,36,34,33,32,35,36,34,33,32]
+            },
+            {
+                name:'最大风速',
+                type:'line', //折线图
+                symbolSize:4,
+                smooth: true,
+                symbol: 'circle', //点的样式为正方形
+                itemStyle : {  /*设置折线颜色*/
+                    normal : {
+                        color:'#35b8c2',
+                    }
+                },
+                areaStyle: {
+                    normal: {
+                        lineStyle:{   
+                        },  
+                        color: new echarts.graphic.LinearGradient(
+                                0, 0, 0, 1,
+                                [
+                                    {offset: 0, color: 'rgba(53,184,194,0.3)'},
+                                    {offset: 0.2, color: 'rgba(53,184,194,0.2)'},
+                                    {offset: 1, color: 'rgba(53,184,194,0)'}
+                                ]
+                        )
+                    },
+                    origin:'start',
+                },
+                data:[20, 15, 18, 25, 5, 12, 15, 18, 25, 5, 12, 15, 18, 25, 5, 12]
+            },
+            {
+                name:'风向',
+                type:'line',
+                symbolSize: 0, // symbol的大小设置为0
+                showSymbol: false, // 不显示symbol
+                lineStyle: {
+                    width: 0, // 线宽是0
+                    color: 'rgba(0, 0, 0, 0)' // 线的颜色是透明的
+                },
+                data:['东南风','东南风','东南风','东南风','东南风','东南风','东南风','东南风','东南风','东南风','东南风','东南风','东南风','东南风','东南风']
+            }
+        ]}
+        myChart.setOption(option);
+    }
+
+    //日照
+    function fifteen_rz_chart(){
+        myChart = echarts.init(document.getElementById("fifteen_rz_chart"));
+        var option = {
+            color: ['#ffb181','#958ac6','#49bcce'], //柱状图的颜色
+            legend: {
+                data:['日照分钟数','紫外线指数','辐射'],
+                x: 'center',
+                y:'10',
+                show:true,
+                textStyle: {
+                    color: '#76b0c7'
+                },
+                data:[
+                    {
+                        name:'日照分钟数',
+                        textStyle:{
+                            fontSize:12,
+                            color:'#666',
+                            width:'5'
+                        },
+                        icon:'roundRect'
+                    },
+                    {
+                        name:'紫外线指数',
+                        textStyle:{
+                            fontSize:12,
+                            color:'#666'
+                        },
+                        icon:'roundRect'
+                    },{
+                        name:'辐射',
+                        textStyle:{
+                            fontSize:12,
+                            color:'#666'
+                        },
+                        icon:'roundRect'
+                    }
+                ]
+            },
+            dataZoom: [
+                {
+                    show: false,
+                    realtime: true,
+                    start: 0,
+                    end: 40,
+                },
+                {
+                    type: 'inside',
+                    realtime: true,
+                    start: 0,
+                    end: 60,
+
+                }
+            ],
+            tooltip: {
+                trigger: 'axis',
+                backgroundColor: 'rgba(255,255,255,1)',  // 提示背景颜色，默认为透明度为0.7的黑色
+                borderColor: '#333',            // 提示边框颜色
+                borderRadius: 4,                // 提示边框圆角，单位px，默认为4
+                borderWidth: 0,                // 提示边框线宽，单位px，默认为0（无边框）
+                padding: 15,
+                extraCssText:'box-shadow:0 0 10px rgba(0,0,0,0.4);',
+                axisPointer : {                 // 坐标轴指示器，坐标轴触发有效
+                    type : 'shadow',  
+                    // 默认为直线，可选为：'line' | 'shadow'
+                    shadowStyle : {              // 阴影指示器样式设置
+                        width: 'auto',         // 阴影大小
+                        color: 'rgba(0,0,0,0.05)',// 阴影颜色
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10  
+                    }
+                }, 
+                textStyle: {
+                    color: '#000'
+                }            
+            },
+            xAxis: { // x轴的设置
+                name: '',
+                nameLocation: 'start',
+                nameTextStyle: {                    
+                    fontSize: 18,
+                    padding: [40,20],
+                    color: '#c2c2c2'            
+                },
+                axisLabel: {   //坐标轴文本标签
+                    show: true,
+                    interval: 'auto',
+                    rotate: 0,
+                    margin: 10,
+                    // formatter: null,
+                    textStyle: {// 其余属性默认使用全局文本样式
+                        color: '#c2c2c2',
+                        fontSize: 16,
+                    }
+                },
+                axisLine: { // y轴线
+                    show: true,         // 默认显示，属性show控制显示与否
+                    lineStyle: {        // 属性lineStyle控制线条样式
+                        color: '#c2c2c2',
+                        width: 1,
+                        type: 'solid'
+                    }
+                },
+                data: ["1/22","1/22","1/22","1/22","1/22","1/22","1/22","1/22","1/22","1/22"],
+                axisLabel:{
+                    show:true,
+                    textStyle: {// 其余属性默认使用全局文本样式
+                        color: '#434343',
+                        fontSize: 14,
+                        lineHeight: 25,
+                    }
+                }
+
+            },
+            grid: {
+                left: '2%',
+                right: '2%',
+                bottom: '4%',
+                top:'25%',
+                containLabel: true
+            },
+            yAxis: [
+                { //y轴的设置
+                    name: '0m/s',
+                    min: 0, //y轴刻度设置，区间为200-650
+                    max: 50,
+                    interval:10,  //递增50
+                    nameTextStyle: {                    
+                        fontSize: 14,
+                        color: '#707070',        
+                    },
+                    axisLine: { // y轴线
+                        show: true,         // 默认显示，属性show控制显示与否
+                        lineStyle: {        // 属性lineStyle控制线条样式
+                            color: '#c2c2c2',
+                            width: 1,
+                            type: 'solid'
+                        }
+                    },
+                    splitLine: { //y轴网格
+                        show: true,
+                        lineStyle:{
+                            color:'#f1f1f1',
+                        }
+                    },    
+                    axisTick: { //y轴刻度线
+                        show: false
+                    }   
+                },
+            ],
+            series: [
+            {
+                    name:'日照分钟数',
+                    type:'bar',
+                    smooth:false,
+                    barWidth:10,
+                    itemStyle: {
+                        normal: {
+                            barBorderRadius: [10, 10, 0, 0],
+                        }
+                    },
+                    label: {
+                        show: false,
+                    },
+                    areaStyle: {normal: {
+                        lineStyle:{  
+                            color:'rgba(255,177,129,1)'  
+                        },  
+                        color: new echarts.graphic.LinearGradient(
+                                0, 0, 0, 1,
+                                [
+                                    {offset: 0, color: 'rgba(255,177,129,0.3)'},
+                                    {offset: 0.5, color: 'rgba(255,177,129,0.05)'},
+                                    {offset: 1, color: 'rgba(255,177,129,0)'}
+                                ]
+                        )
+                    }},
+                    data:[1,1,1,1,11,11,1,1,1,11,]
+                },
+                {
+                    name:'紫外线指数',
+                    type:'bar',
+                    smooth:false,
+                    barWidth:10,
+                    itemStyle: {
+                        normal: {
+                            barBorderRadius: [10, 10, 0, 0],
+                        }
+                    },
+                    label: {
+                        show: false,
+                    },
+                    areaStyle: {normal: {
+                        lineStyle:{  
+                            color:'rgba(237,207,125,1)'  
+                        },  
+                        color: new echarts.graphic.LinearGradient(
+                                0, 0, 0, 1,
+                                [
+                                    {offset: 0, color: 'rgba(226,141,138,0.3)'},
+                                    {offset: 0.8, color: 'rgba(226,141,138,0.05)'},
+                                    {offset: 1, color: 'rgba(226,141,138,0)'}
+                                ]
+                        )
+                    }},
+                    data:[22,2,2,2,2,2,2,2,2,22]
+                },
+                {
+                    name:'辐射',
+                    type:'bar',
+                    smooth:false,
+                    barWidth:10,
+                    itemStyle: {
+                        normal: {
+                            barBorderRadius: [10, 10, 0, 0],
+                        }
+                    },
+                    label: {
+                        show: false,
+                    },
+                    areaStyle: {normal: {
+                        lineStyle:{  
+                            color:'rgba(237,207,125,1)'  
+                        },  
+                        color: new echarts.graphic.LinearGradient(
+                                0, 0, 0, 1,
+                                [
+                                    {offset: 0, color: 'rgba(179,156,207,0.3)'},
+                                    {offset: 0.8, color: 'rgba(179,156,207,0.05)'},
+                                    {offset: 1, color: 'rgba(179,156,207,0)'}
+                                ]
+                        )
+                    }},
+                    data:[3,33,3,3,3,33,33,3,3,3]
+                },
+        ]}
+        myChart.setOption(option);
+    }
+
+</script>

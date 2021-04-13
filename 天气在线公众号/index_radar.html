@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>雷达云图</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/swiper.min.css" />
+  <link rel="stylesheet" href="js/layui/css/layui.css" />
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+</head>
+<style type="text/css">
+    .swiper-button-next, .swiper-button-prev{
+        background-image: none;
+        right: auto;
+        left: auto;
+        position: inherit;
+    }
+    .swiper-container{
+        overflow:inherit;
+    }
+    .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
+        bottom: -0.9051612903rem;
+    }
+    .swiper-pagination-bullet {
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        border-radius: 100%;
+        background: #000;
+        opacity: .2;
+    }
+    .swiper-pagination-bullet-active{
+        opacity: 1;
+        background: #588cff;
+    }
+    .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+        margin:0 10px;
+    }
+</style>
+<body>
+
+    <div class="section" style="background: #fff;">
+        <div class="radar_bt">
+            <ul>
+                <li class="active">
+                    <span>雷达回波图</span>
+                </li>
+                <p></p>
+                <li>
+                    <span>卫星云图</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="radar_nr">
+            <span class="radar_nr_tt">本地区最近两小时单站雷达图片</span>
+            <div class="radar_nr_lb swiper-container" id="banner">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide"><img src="images/wa_map.jpg"></li>
+                    <li class="swiper-slide"><img src="images/re_img.jpg"></li>
+                    <li class="swiper-slide"><img src="images/wa_map.jpg"></li>
+                    <li class="swiper-slide"><img src="images/re_img.jpg"></li>
+                    <li class="swiper-slide"><img src="images/wa_map.jpg"></li>
+                    <li class="swiper-slide"><img src="images/re_img.jpg"></li>
+                    <li class="swiper-slide"><img src="images/wa_map.jpg"></li>
+                    <li class="swiper-slide"><img src="images/re_img.jpg"></li>
+                </ul>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="radar_nr_ps">
+                <div class="ps_zi">
+                    <span>2019年12月18日 10:24</span>
+                </div>
+                <div class="ps_progress">
+                    <div class="progress"></div>
+                </div>
+                <div class="ps_cz">
+                    <a href="javascript:void(0);" class="swiper-button-prev"><img class="arrow" id="al" src="images/ra_prev.png" alt="prev" width="20" height="35"></a>
+                    <img class="start" src="images/ra_start.png">
+                    <a href="javascript:void(0);" class="swiper-button-next"><img class="arrow" id="ar" src="images/ra_next.png" alt="next" width="20" height="37"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/swiper4.min.js"></script>
+<script type="text/javascript" src="js/mobile.js"></script>
+<!-- <script type="text/javascript" src="Js/unslider.min.js"></script> -->
+
+
+<script type="text/javascript">
+
+    $(function(){
+        $('.radar_bt ul li').click(function(){
+            $(this).addClass('active');
+            $(this).siblings().removeClass('active');
+        });
+
+
+        var progress = $(".progress"),li_width = $("#banner li").length;
+        progress.animate({"width":(100/li_width)*1+"%"});
+        var swiper = new Swiper('.swiper-container', {
+            loop : true,
+            spaceBetween: 30,
+            effect : 'fade',
+            autoplay: {
+                delay: 3000,
+                stopOnLastSlide: false,
+                disableOnInteraction: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            on: {
+                slideChangeTransitionStart: function(){
+                    if(this.activeIndex ==9){
+                        progress.animate({"width":(100/li_width)*1+"%"});
+                    }else if(this.activeIndex ==0){
+                        progress.animate({"width":(100/li_width)*li_width+"%"});
+                    }else{
+                        progress.animate({"width":(100/li_width)*(this.activeIndex)+"%"});
+                    }
+                },
+          },
+        });
+
+        $(".start").click(function() {
+            if($(this).hasClass('xz')){
+                swiper.autoplay.start();
+                $(this).removeClass('xz');
+                $(this).attr('src','images/ra_start.png');
+            }else{
+                swiper.autoplay.stop();
+                $(this).addClass('xz');
+                $(this).attr('src','images/ra_stop.png');
+            }
+            
+        });
+    });
+</script>

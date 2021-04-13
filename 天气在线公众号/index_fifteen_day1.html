@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>15天天气预报</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index1.css" />
+  <link rel="stylesheet" href="css/swiper.min.css" />
+  <link rel="stylesheet" href="js/layui/css/layui.css" />
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+</head>
+<style type="text/css">
+    .layui-form-switch em{
+      color: #fff !important;
+    }
+</style>
+<body>
+
+    <div class="section">
+        <div class="fifteen_bt">
+            <div class="fif_sk">
+                <div class="bt_nr_city">
+                    <img class="dw" src="images/dw.png">
+                    <span id="city_name">重庆·渝中·大坪正街</span>
+                </div>
+
+                <div class="fif_sk_nr">
+                    <span>36°</span>
+                    <p>晴</p>
+                    <i>热度日</i>
+                </div>
+
+                <div class="fif_sk_dh">
+                    <a href="#">48小时详情</a>
+                    <a href="#">14天逐日详情</a>
+                </div>
+            </div>
+            <div class="fif_wd">
+                <div class="index_tq_bt">
+                    <p></p>
+                    <span>温度</span>
+                    <div class="tq_dh">
+                        <div class="layui-form">
+                            <div class="layui-input-block" style="margin-left: 0px;">
+                              <input type="checkbox" name="close" lay-skin="switch" lay-filter="switchTest" lay-text="折线图|柱状图">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="index_day_nr_z">
+                    <div class="index_day_nr">
+                        <ul>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                                <i class="day_bottom">12°</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                                <i class="day_bottom">12°</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                                <i class="day_bottom">12°</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                                <i class="day_bottom">12°</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                                <i class="day_bottom">12°</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <img src="images/weather/lan/晴.png">
+                                <i>12°</i>
+                                <i class="day_bottom">12°</i>
+                            </li>
+                        </ul>
+                        <div class="day_qh">
+                            <div class="day_list day_15_chart" id="day_15_chart"></div>
+                            <div class="day_list day_b_chart">
+                                <ul>
+                                    <li>
+                                        <div class="day_zhu">
+                                            <p class="zhu_nr"></p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="fif_cont">
+            <!-- 降雨概率 -->
+            <div class="fif_probability">
+                <div class="index_tq_bt">
+                    <p></p>
+                    <span>降水概率/降雨量</span>
+                </div>
+                <div class="probability_nr_z">
+                    <div class="probability_nr">
+                        <ul>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <div class="fif_probability_chart" id="fif_probability_chart"></div>
+                                <i>65mm</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <div class="fif_probability_chart" id="fif_probability_chart1"></div>
+                                <i>65mm</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <div class="fif_probability_chart" id="fif_probability_chart2"></div>
+                                <i>65mm</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <div class="fif_probability_chart" id="fif_probability_chart3"></div>
+                                <i>65mm</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <div class="fif_probability_chart" id="fif_probability_chart4"></div>
+                                <i>65mm</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <div class="fif_probability_chart" id="fif_probability_chart5"></div>
+                                <i>65mm</i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+             <!-- 风速风向 -->
+            <div class="fif_probability">
+                <div class="index_tq_bt">
+                    <p></p>
+                    <span>风速风向</span>
+                    <div class="tq_tl">
+                        <div class="tl_list">
+                            <b class="zdf"></b><span>最大风</span>
+                        </div>
+                        <div class="tl_list">
+                            <b class="pjf"></b><span>平均风</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="probability_nr_z">
+                    <div class="probability_nr">
+                        <ul>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <img class="W" src="images/fif_fx.png">
+                                <i>6.6m/s</i>
+                               
+                                <i class="fif_bottom">2.1m/s</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <img class="E" src="images/fif_fx.png">
+                                <i>7.26m/s</i>
+                               
+                                <i class="fif_bottom">2.1m/s</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <img class="WN" src="images/fif_fx.png">
+                                <i>8.2m/s</i>
+                               
+                                <i class="fif_bottom">2.1m/s</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <img class="WS" src="images/fif_fx.png">
+                                <i>5.5m/s</i>
+                               
+                                <i class="fif_bottom">2.1m/s</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <img class="ES" src="images/fif_fx.png">
+                                <i>3.5m/s</i>
+                               
+                                <i class="fif_bottom">2.1m/s</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <img class="EN" src="images/fif_fx.png">
+                                <i>8.9m/s</i>
+                               
+                                <i class="fif_bottom">2.1m/s</i>
+                            </li>
+                        </ul>
+                        <div class="fif_b_chart">
+                            <ul>
+                                <li>
+                                    <div class="fif_zhu">
+                                        <p class="fif_zhu_nr"></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 空气质量 -->
+            <div class="fif_probability">
+                <div class="index_tq_bt">
+                    <p></p>
+                    <span>空气质量</span>
+                </div>
+                <div class="probability_nr_z">
+                    <div class="probability_nr">
+                        <ul>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                               
+                                <i class="fif_zl_bottom">优</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                
+                                <i class="fif_zl_bottom">优</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                
+                                <i class="fif_zl_bottom">优</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                
+                                <i class="fif_zl_bottom">优</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                
+                                <i class="fif_zl_bottom">优</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                
+                                <i class="fif_zl_bottom">优</i>
+                            </li>
+                        </ul>
+                        <div class="fif_zl_chart" id="fif_zl_chart"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 辐射量 -->
+            <div class="fif_probability">
+                <div class="index_tq_bt">
+                    <p></p>
+                    <span>辐射量</span>
+                </div>
+                <div class="probability_nr_z">
+                    <div class="probability_nr">
+                        <ul>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                
+                                <i class="fif_fsl_bottom">21mw</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                
+                                <i class="fif_fsl_bottom">18mw</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+
+                                <i class="fif_fsl_bottom">15mw</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+
+                                <i class="fif_fsl_bottom">35mw</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+
+                                <i class="fif_fsl_bottom">25mw</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                               
+                                <i class="fif_fsl_bottom">65mw</i>
+                            </li>
+                        </ul>
+                        <div class="fif_fsl_chart">
+                            <ul>
+                                <li>
+                                    <div class="fif_fsl_zhu">
+                                        <p class="fif_fsl_zhu_nr"></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 日照小时数 -->
+            <div class="fif_probability">
+                <div class="index_tq_bt">
+                    <p></p>
+                    <span>日照小时数</span>
+                </div>
+                <div class="probability_nr_z">
+                    <div class="probability_nr">
+                        <ul>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <div class="fif_probability_chart" id="fif_hour_chart"></div>
+                                <i>3.5h</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <div class="fif_probability_chart" id="fif_hour_chart1"></div>
+                                <i>4h</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <div class="fif_probability_chart" id="fif_hour_chart2"></div>
+                                <i>2.5h</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <div class="fif_probability_chart" id="fif_hour_chart3"></div>
+                                <i>3.8h</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <div class="fif_probability_chart" id="fif_hour_chart4"></div>
+                                <i>4.2h</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                <div class="fif_probability_chart" id="fif_hour_chart5"></div>
+                                <i>3.2h</i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 紫外线指数 -->
+            <div class="fif_probability">
+                <div class="index_tq_bt">
+                    <p></p>
+                    <span>紫外线指数</span>
+                    <div class="tq_tl">
+                        <div class="tl_list">
+                            <b class="lj"></b><span>0级</span>
+                        </div>
+                        <div class="tl_list">
+                            <b class="swj"></b><span>15级</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="probability_nr_z">
+                    <div class="probability_nr">
+                        <ul>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                
+                                <i class="fif_fsl_bottom">2级</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                                
+                                <i class="fif_fsl_bottom">11级</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+
+                                <i class="fif_fsl_bottom">4级</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+
+                                <i class="fif_fsl_bottom">8级</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+
+                                <i class="fif_fsl_bottom">3级</i>
+                            </li>
+                            <li>
+                                <span>周四</span>
+                                <p>今天</p>
+                               
+                                <i class="fif_fsl_bottom">7级</i>
+                            </li>
+                        </ul>
+                        <div class="fif_zwx_chart">
+                            <ul>
+                                <li>
+                                    <div class="fif_zwx_zhu">
+                                        <p class="fif_zwx_zhu_nr"></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 紫外线指数 -->
+            <div class="fif_probability">
+                <div class="index_tq_bt">
+                    <p></p>
+                    <span>今年冷/热度日</span>
+                    <i class="fa fa-angle-right" onclick="window.location.href='index_calendar.html'"></i>
+                </div>
+                <div class="calendar_nr_z">
+                    <img class="du_icon" style="left:0" src="images/leng.png">
+                    <ul>
+
+                        <li>
+                            <p><b>123</b>天</p>
+                            <span>冷度日天数</span>
+                        </li>
+                        <li>
+                            <p><b>84</b>天</p>
+                            <span>热度日天数</span>  
+                        </li>
+                    </ul>
+                    <img class="du_icon" style="right: 0" src="images/re.png">
+                </div>
+            </div>
+        </div>
+    </div>
+	
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/echarts.common.min.js"></script>
+<script type="text/javascript" src='js/echarts-liquidfill.js'></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/mobile.js"></script>
+<script type="text/javascript" src="js/layui/layui.js"></script>
+
+
+<script type="text/javascript">
+
+    $(function(){
+
+
+        $('.day_qh .day_list').eq(0).show();
+        //折线图
+        day_15_chart();
+        //柱状图
+        var a=[[3,5],[5,6],[4,8],[3,5],[5,6],[4,8]];
+        zhu_nr(a);
+
+        // 水滴图
+        shuidi();
+
+        //风速风向
+        var a=[[3.5,6.6],[2.1,7.2],[6.1,8.2],[2.1,5.5],[4.1,6.5],[2.1,8.9]];
+        fs_nr(a);
+
+        // 空气质量
+        fif_zl_chart();
+
+        //辐射量
+        var a=[21,18,15,35,25,65];
+        fsl_nr(a);
+
+        // 日照小时数
+        day_hour();
+
+        //紫外线指数
+        var a=[2,11,4,8,3,7];
+        zwx_nr(a);
+    });
+
+
+    // 柱状图
+    function zhu_nr(index){
+        var index = index;
+        var ta=index.join(",").split(",");
+        console.log(index);
+        var Maxindex = Math.max.apply(null, ta);//最大值
+        var Minindex = Math.min.apply(null, ta);//最小
+
+        var Listindex = 100/(Maxindex - Minindex);//每一度占的百分比
+        var cont_z = '';
+        for(j = 0;j<index.length; j++) {
+            var Height = (index[j][1] - index[j][0]) * Listindex;//每项数据高度的百分比
+            var Top = (Maxindex - index[j][1]) * Listindex;//每项数据向下偏移的百分比
+            console.log('最小：'+index[j][0]+'最大：'+index[j][1]);
+            console.log(Top+'+'+Height);
+            
+            var cont= '<li><div class="day_zhu"><p style="top:'+Top+'%;height:'+Height+'%" class="zhu_nr"></p></div></li>';
+
+            cont_z += cont;
+        }
+        cont_z = '<ul>' + cont_z + '</ul>';
+        $(".day_b_chart").html(cont_z);
+    }
+
+    function day_15_chart(){
+        /*15天天气预报*/
+        myChart = echarts.init(document.getElementById("day_15_chart"));
+
+        var option ={
+            color: ['#9fccff'],
+            grid: {
+                top: '40%',
+                left: '0%',
+                right: '0%',
+                bottom: '30%',
+            },
+            xAxis: [
+                {
+                    show: false,
+                    type: 'category',
+                    splitLine: {
+                        show: true,
+                    },
+                    axisLine: {
+                        onZero: false,
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    show: false,
+                    type: 'value',
+                    splitLine: {
+                        show: true,
+                    },
+                    axisLine: {
+                        onZero: false,
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: '高温',
+                    type: 'line',
+                    data: [5,6,8,5,6,8],
+                    symbolSize: 7,
+                    smooth:true,
+                    itemStyle: {
+                        normal: {
+                            color: "#ffc500",//折线点的颜色
+                            lineStyle: {
+                                color: '#ffc500',
+                                width: 2,
+                            }
+                        }
+                    },
+                    label: {
+                        show: true,
+                        position: 'top',
+                        color: '#ffc500',
+                        shadowBlur: 2,
+                        shadowColor: 'black',
+                        shadowOffsetX: 2,
+                        formatter: "{c}℃",
+                        textStyle:{fontSize:15}
+                    },
+                },
+                {
+                    name: '低温',
+                    type: 'line',
+                    data: [3,5,4,3,5,4],
+                    symbolSize: 7,
+                    smooth:true,
+                    itemStyle: {
+                        normal: {
+                            color: "#287dd0",//折线点的颜色
+                            lineStyle: {
+                                color: '#287dd0',
+                                width: 2,
+                            }
+                        }
+                    },
+                    label: {
+                        show: true,
+                        position: 'bottom',
+                        color: '#287dd0',
+                        shadowBlur: 2,
+                        shadowColor: 'black',
+                        shadowOffsetX: 2,
+                        formatter: "{c}℃",
+                        textStyle:{fontSize:15},
+                    },
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
+
+
+    // 水滴图
+    function shuidi(){
+        /*15天天气预报*/
+        myChart = echarts.init(document.getElementById("fif_probability_chart"));
+        myChart1 = echarts.init(document.getElementById("fif_probability_chart1"));
+        myChart2 = echarts.init(document.getElementById("fif_probability_chart2"));
+        myChart3 = echarts.init(document.getElementById("fif_probability_chart3"));
+        myChart4 = echarts.init(document.getElementById("fif_probability_chart4"));
+        myChart5 = echarts.init(document.getElementById("fif_probability_chart5"));
+        var option ={
+            
+            series: [{
+                type: 'liquidFill',
+                data: [0.1],
+                color: ['#6edcff','#1897f0'],
+                radius: '60%',
+                itemStyle: {
+                    shadowBlur: 0
+                },
+                backgroundStyle: {
+                    borderWidth: 2,
+                    borderColor: '#b9efff'
+                },
+                outline: {
+                    show: false
+                },
+                label: {
+                    color: '#434343',
+                    insideColor: '#434343',
+                    fontSize: 10,
+
+                    position: ['50%','50%'],
+                },
+                shape: 'path://M32.3,34.5C32.3,34.5,32.3,34.5,32.3,34.5 c-0.1,0.1-0.1,0.1-0.2,0.2c-1.4,2.6-2.7,5.4-3.5,8.2c-0.5,1.8-1,3.6-1,5.4c0,2.6,0.8,5,2.1,7.3c0.8,1.3,1.9,2.2,3.4,2.6 c1.4,0.4,2.7-0.1,3.4-1.2c0.3-0.5,0.4-0.9,0.3-1.5c-0.1-0.6-0.4-1.1-0.8-1.6c-1.4-1.8-2.6-3.8-3.4-6c-1.4-3.8-1.4-7.7-0.7-11.6 C32,35.7,32.1,35.1,32.3,34.5z M40,13.9c1,1.3,1.9,2.5,2.8,3.7c3,4.1,5.7,8.3,8.1,12.7c2,3.6,3.8,7.3,5,11.3c0.6,1.9,1.1,3.8,1.2,5.8 c0.4,4.7-1,9-4,12.6c-2.8,3.3-6.4,5.4-10.8,5.9c-6.8,0.8-12.3-1.6-16.4-7.1c-1.8-2.4-2.8-5.2-3.1-8.2c-0.2-2.3,0-4.5,0.5-6.7 c0.8-3.4,2.1-6.6,3.7-9.7c3.3-6.7,7.4-13,11.9-19C39.3,14.8,39.6,14.4,40,13.9z',
+                center: ['50%', '60%']
+            }]
+        }
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        myChart1.setOption(option);
+        myChart2.setOption(option);
+        myChart3.setOption(option);
+        myChart4.setOption(option);
+        myChart5.setOption(option);
+    }
+
+    // 风速风向
+    function fs_nr(index){
+        var index = index;
+        var ta=index.join(",").split(",");
+        console.log(index);
+        var Maxindex = Math.max.apply(null, ta);//最大值
+        var Minindex = Math.min.apply(null, ta);//最小
+
+        var Listindex = 100/(Maxindex - Minindex);//每一度占的百分比
+        var cont_z = '';
+        for(j = 0;j<index.length; j++) {
+            var Height = (index[j][1] - index[j][0]) * Listindex;//每项数据高度的百分比
+            var Top = (Maxindex - index[j][1]) * Listindex;//每项数据向下偏移的百分比
+            console.log('最小：'+index[j][0]+'最大：'+index[j][1]);
+            console.log(Top+'+'+Height);
+            
+            var cont= '<li><div class="fif_zhu"><p style="top:'+Top+'%;height:'+Height+'%" class="fif_zhu_nr"></p></div></li>';
+
+            cont_z += cont;
+        }
+        cont_z = '<ul>' + cont_z + '</ul>';
+        $(".fif_b_chart").html(cont_z);
+    }
+
+    // 空气质量
+    function fif_zl_chart(){
+        /*15天天气预报*/
+        myChart = echarts.init(document.getElementById("fif_zl_chart"));
+
+        var option ={
+            color: ['#9fccff'],
+            grid: {
+                top: '20%',
+                left: '0%',
+                right: '0%',
+                bottom: '2%',
+            },
+            xAxis: [
+                {
+                    show: false,
+                    type: 'category',
+                    splitLine: {
+                        show: true,
+                    },
+                    axisLine: {
+                        onZero: false,
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    show: false,
+                    type: 'value',
+                    splitLine: {
+                        show: true,
+                    },
+                    axisLine: {
+                        onZero: false,
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: '高温',
+                    type: 'bar',
+                    data: [56,45,133,212,186,368],
+                    symbolSize: 7,
+                    smooth:true,
+                    barWidth : 28,//柱图宽度
+                    itemStyle:{
+                        normal:{
+                            barBorderRadius: [6, 6, 0, 0],
+                            color: function(params) {
+                                var index_color = params.value;
+
+                                if(index_color<=50){
+                                    return '#04e300';
+                                }
+                                if(index_color<=100){
+                                    return '#ffff00';
+                                }
+                                if(index_color<=150){
+                                    return '#fea405';
+                                }
+                                if(index_color<=200){
+                                    return '#fe0000';
+                                }
+                                if(index_color<=300){
+                                    return '#81007f';
+                                }
+                                else{
+                                    return '#7e0025';
+                                }
+                            }
+                        }
+                    },
+                    label: {
+                        show: true,
+                        position: 'top',
+                        color: '#434343',
+                        shadowBlur: 2,
+                        shadowColor: 'black',
+                        shadowOffsetX: 2,
+                        formatter: "{c}",
+                        textStyle:{fontSize:14}
+                    },
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
+
+    // 辐射量
+    function fsl_nr(index){
+        var index = index;
+        var ta=index.join(",").split(",");
+        console.log(index);
+        var Maxindex = Math.max.apply(null, ta);//最大值
+        var Minindex = Math.min.apply(null, ta);//最小
+
+        var Listindex = 100/Maxindex;//每一mw占的百分比
+        var cont_z = '';
+        for(j = 0;j<index.length; j++) {
+            var Height = (index[j]) * Listindex;//每项数据高度的百分比
+            var Top = (Maxindex - index[j]) * Listindex;//每项数据向下偏移的百分比
+            console.log('值：'+index[j]);
+            console.log('值：'+Maxindex+'+'+Minindex);
+            console.log(Top+'+'+Height);
+            
+            var cont= '<li><div class="fif_fsl_zhu"><p style="top:'+Top+'%;height:'+Height+'%" class="fif_fsl_zhu_nr"></p></div></li>';
+
+            cont_z += cont;
+        }
+        cont_z = '<ul>' + cont_z + '</ul>';
+        $(".fif_fsl_chart").html(cont_z);
+    }
+
+    // 水滴图
+    function day_hour(){
+        /*15天天气预报*/
+        myChart = echarts.init(document.getElementById("fif_hour_chart"));
+        myChart1 = echarts.init(document.getElementById("fif_hour_chart1"));
+        myChart2 = echarts.init(document.getElementById("fif_hour_chart2"));
+        myChart3 = echarts.init(document.getElementById("fif_hour_chart3"));
+        myChart4 = echarts.init(document.getElementById("fif_hour_chart4"));
+        myChart5 = echarts.init(document.getElementById("fif_hour_chart5"));
+        var option ={
+            tooltip:{
+                show:false,
+            },
+            series: [
+                {
+                    name: '访问来源',
+                    color:['#edf5ff','#ffc700'],
+                    type: 'pie',
+                    radius: '55%',
+                    hoverAnimation:false,
+                    center: ['50%', '60%'],
+                    data: [
+                        {
+                            value: 18, 
+                            name: '未日照',
+                            itemStyle: {
+                              normal: { color: '#edf5ff' },  //正常颜色
+                              emphasis: { color: '#edf5ff' }, //鼠标移入颜色
+                            },
+                        },
+                        {
+                            value: 6, 
+                            name: '日照',
+                            itemStyle: {
+                              normal: { color: '#ffc700' },  //正常颜色
+                              emphasis: { color: '#ffc700' }, //鼠标移入颜色
+                            },
+                        },
+                      
+                    ],
+                    label: {
+                    normal: {
+                       position: 'inner',
+                       show : false
+                    }
+                  },
+                }
+            ]
+        }
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        myChart1.setOption(option);
+        myChart2.setOption(option);
+        myChart3.setOption(option);
+        myChart4.setOption(option);
+        myChart5.setOption(option);
+    }
+
+    // 紫外线指数
+    function zwx_nr(index){
+        var index = index;
+        var ta=index.join(",").split(",");
+        console.log(index);
+        var Maxindex = 15;//最大值
+        var Minindex = 0;//最小
+
+        var Listindex = 100/Maxindex;//每一mw占的百分比
+        var cont_z = '';
+        for(j = 0;j<index.length; j++) {
+            var Height = (index[j]) * Listindex;//每项数据高度的百分比
+            var Top = (Maxindex - index[j]) * Listindex;//每项数据向下偏移的百分比
+            console.log('值：'+index[j]);
+            console.log('值：'+Maxindex+'+'+Minindex);
+            console.log(Top+'+'+Height);
+            
+            var cont= '<li><div class="fif_zwx_zhu"><p style="top:'+Top+'%;height:'+Height+'%" class="fif_zwx_zhu_nr"></p></div></li>';
+
+            cont_z += cont;
+        }
+        cont_z = '<ul>' + cont_z + '</ul>';
+        $(".fif_zwx_chart").html(cont_z);
+    }
+
+     /*引用layui*/
+    layui.use(['form', 'layedit', 'laydate','element','layer'], function(){
+      var form = layui.form
+      ,layer = layui.layer
+      ,layedit = layui.layedit
+      ,laydate = layui.laydate
+      ,$ = layui.jquery
+      ,element = layui.element;
+      
+      //切换柱状图 折线图
+      form.on('switch(switchTest)', function (data) {
+            if(this.checked ==true){
+                 $('.day_qh .day_list').hide();
+                 $('.day_qh .day_list').eq(1).show();
+            }else{
+                 $('.day_qh .day_list').hide();
+                 $('.day_qh .day_list').eq(0).show();
+            }
+        });
+    })
+</script>

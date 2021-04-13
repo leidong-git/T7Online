@@ -1,0 +1,21 @@
+html, body {
+    font-family: "Microsoft YaHei";
+    font-size: 14px;
+}
+
+ul,ol,li{
+    list-style: none;
+}
+p{
+  margin:0;
+}
+a{
+  text-decoration: none;
+}
+img {
+   border:none;
+}
+
+
+
+

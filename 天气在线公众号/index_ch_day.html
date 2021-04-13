@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>冷/热度日</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index1.css" />
+  <link rel="stylesheet" href="css/swiper.min.css" />
+  <link rel="stylesheet" href="js/layui/css/layui.css" />
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+</head>
+<style type="text/css">
+    .layui-layer{
+        border-radius: 8px !important;
+    }
+</style>
+<body>
+
+    <div class="section">
+        <!-- 冷/热度日 -->
+        <div class="index_fifteen_dr" style="border-top:0">
+            <div class="fifteen_js_nr">
+                <div class="fifteen_dr_bt">
+                    <i class="fa fa-angle-left"></i>
+                    <span>2020年11月</span>
+                    <i class="fa fa-angle-right"></i>
+                </div>
+                <div class="fifteen_dr_lb">
+                    <ul>
+                        <li>一</li>
+                        <li>二</li>
+                        <li>三</li>
+                        <li>四</li>
+                        <li>五</li>
+                        <li>六</li>
+                        <li>日</li>
+                    </ul>
+                </div>
+                <div class="fifteen_dr_nr">
+                    <ul>
+                        <li>
+                            <span></span>
+                            <p></p>
+                        </li>
+                        <li>
+                            <span></span>
+                            <p></p>
+                        </li>
+                        <li class="heat">
+                            <span>1</span>
+                            <p></p>
+                        </li>
+                        <li class="heat">
+                            <span>2</span>
+                            <p></p>
+                        </li>
+                        <li class="heat">
+                            <span>3</span>
+                            <p></p>
+                        </li>
+                        <li class="heat">
+                            <span>4</span>
+                            <p></p>
+                        </li>
+                        <li class="heat">
+                            <span>5</span>
+                            <p></p>
+                        </li>
+                        <li class="heat">
+                            <span>6</span>
+                            <p></p>
+                        </li>
+                        <li class="heat">
+                            <span>7</span>
+                            <p></p>
+                        </li>
+                        <li class="heat">
+                            <span>8</span>
+                            <p></p>
+                        </li>
+                        <li class="heat">
+                            <span>9</span>
+                            <p></p>
+                        </li>
+                        <li class="heat">
+                            <span>10</span>
+                            <p></p>
+                        </li>
+                        <li class="heat">
+                            <span>11</span>
+                            <p></p>
+                        </li>
+                        <li class="heat">
+                            <span>12</span>
+                            <p></p>
+                        </li>
+                        <li class="cold">
+                            <span>13</span>
+                            <p></p>
+                        </li>
+                        <li class="cold">
+                            <span>14</span>
+                            <p></p>
+                        </li>
+                        <li class="cold">
+                            <span>15</span>
+                            <p></p>
+                        </li>
+                        <li class="heat">
+                            <span>16</span>
+                            <p></p>
+                        </li>
+                        <li class="heat">
+                            <span>17</span>
+                            <p></p>
+                        </li>
+                        <li class="heat">
+                            <span>18</span>
+                            <p></p>
+                        </li>
+                        <li class="now">
+                            <span>19</span>
+                            <p>今天</p>
+                        </li>
+                        <li class="yc_heat">
+                            <span>20</span>
+                            <p></p>
+                        </li>
+                        <li class="yc_cold">
+                            <span>21</span>
+                            <p></p>
+                        </li>
+                        <li class="yc_heat">
+                            <span>22</span>
+                            <p></p>
+                        </li>
+                        <li class="yc_heat">
+                            <span>23</span>
+                            <p></p>
+                        </li>
+                        <li class="yc_heat">
+                            <span>24</span>
+                            <p></p>
+                        </li>
+                        <li class="yc_cold">
+                            <span>25</span>
+                            <p></p>
+                        </li>
+                        <li class="yc_cold">
+                            <span>26</span>
+                            <p></p>
+                        </li>
+                        <li class="yc_cold">
+                            <span>27</span>
+                            <p></p>
+                        </li>
+                        <li class="yc_cold">
+                            <span>28</span>
+                            <p></p>
+                        </li>
+                        <li class="yc_heat">
+                            <span>29</span>
+                            <p></p>
+                        </li>
+                        <li class="yc_heat">
+                            <span>30</span>
+                            <p></p>
+                        </li>
+                        <li class="yc_heat">
+                            <span>31</span>
+                            <p></p>
+                        </li>
+                        <li>
+                            <span></span>
+                            <p></p>
+                        </li>
+                        <li>
+                            <span></span>
+                            <p></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="fifteen_dr_tl">
+                    <ul>
+                        <li class="cold">
+                            <p class="rdz"></p>
+                            <span>热度日</span>
+                        </li>
+                        <li class="heat">
+                            <p class="ldz"></p>
+                            <span>冷度日</span>
+                        </li>
+                        <li class="yc_cold">
+                            <p class="yc_rdz"></p>
+                            <span>预测热度日</span>
+                        </li>
+                        <li class="yc_heat">
+                            <p class="yc_ldz"></p>
+                            <span>预测冷度日</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 冷热度日弹窗 -->
+    <div class="ch_tc" id="ch_tc">
+        <div class="ch_tc_nr">
+            <div class="ch_tc_nr_bt">
+                <p></p>
+                <span>本年内（截止选中日期）</span>
+            </div>
+            <div class="ch_tc_nr_nr">
+                <ul>
+                    <li>
+                        <p>冷度日天数：<i class="cole">125</i>天</p>
+                    </li>
+                    <li>
+                        <p>热度日天数：<i class="heat">98</i>天</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="ch_tc_nr">
+            <div class="ch_tc_nr_bt">
+                <p></p>
+                <span>前30天（截止选中日期）</span>
+            </div>
+            <div class="ch_tc_nr_nr">
+                <ul>
+                    <li>
+                        <p>冷度日天数：<i class="cole">10</i>天</p>
+                    </li>
+                    <li>
+                        <p>热度日天数：<i class="heat">2</i>天</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+        <div class="index_fifteen_ch">
+            <div class="index_day_bt">
+                <p></p>
+                <span>计算说明：</span>
+            </div>
+            <div class="fifteen_ch_nr">
+                <span>温度日较差（diurmal variation temperature），指温度气象要素一昼夜最高值与最低值之差，其大小反应一昼夜之间的变化程度。</span>
+            </div>
+        </div>
+    </div>
+	
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/echarts.common.min.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/mobile.js"></script>
+<script type="text/javascript" src="js/layui/layui.js"></script>
+
+
+<script type="text/javascript">
+
+    $(function(){
+        //冷/热度日
+        $('.fifteen_dr_tl ul li').click(function(){
+            var index = $(this).index();
+            if($(this).hasClass('active')){
+                console.log(1);
+                switch(index){
+                    case 0:
+                        console.log(3);
+                        $(this).removeClass('active');
+                        $('.fifteen_dr_nr ul .cold').removeClass('xz_cold');
+                        break;
+                    case 1:
+                        $(this).removeClass('active');
+                        $('.fifteen_dr_nr ul .heat').removeClass('xz_heat');
+                        break;
+                    case 2:
+                        $(this).removeClass('active');
+                        $('.fifteen_dr_nr ul .yc_cold').removeClass('xz_yc_cold');
+                        break;
+                    case 3:
+                        $(this).removeClass('active');
+                        $('.fifteen_dr_nr ul .yc_heat').removeClass('xz_yc_heat');
+                        break;
+                }
+            }else{
+                console.log(2);
+                switch(index){
+                    case 0:
+                        console.log(4);
+                        $(this).addClass('active');
+                        $('.fifteen_dr_nr ul .cold').addClass('xz_cold');
+                        break;
+                    case 1:
+                        $(this).addClass('active');
+                        $('.fifteen_dr_nr ul .heat').addClass('xz_heat');
+                        break;
+                    case 2:
+                        $(this).addClass('active');
+                        $('.fifteen_dr_nr ul .yc_cold').addClass('xz_yc_cold');
+                        break;
+                    case 3:
+                        $(this).addClass('active');
+                        $('.fifteen_dr_nr ul .yc_heat').addClass('xz_yc_heat');
+                        break;
+
+                }
+            }
+        })
+    });
+
+    layui.use('layer', function(){
+        var layer = layui.layer //弹层
+    });
+</script> 

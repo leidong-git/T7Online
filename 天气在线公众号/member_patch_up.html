@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>补开发票</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/personal.css" />
+  <link rel="stylesheet" href="css/swiper.min.css" />
+  <link rel="stylesheet" href="js/layui/css/layui.css" />
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="section">
+        <div class="member_invoice">
+            <div class="about_bt" style="border:0;">
+                <p></p>
+                <span>补开发票</span>
+            </div>
+            <div class="member_invoice_nr">
+                <div class="invoice_nr_kaip">
+                    <div class="kaip_bt">
+                        <span>开票信息</span>
+                        <div class="bt_list">
+                            <a class="active" href="#">个人</a>
+                            <a href="#">单位</a>
+                        </div>
+                    </div>
+                    <div class="profile_list_nr">
+                        <ul>
+                            <li>
+                                <p>公司名称：</p>
+                                <input type="" name="" placeholder="请输入公司名称">   
+                            </li>
+                            <li>
+                                <p class="list_nr_chang">纳税人识别号：</p>
+                                <input class="list_nr_input" type="" name="" placeholder="请输入纳税人识别号">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="invoice_nr_youji">
+                    <div class="kaip_bt">
+                        <span>邮寄地址</span>
+                    </div>
+                    <div class="profile_list_nr">
+                        <ul>
+                            <li>
+                                <p>收货人：</p>
+                                <input type="" name="" placeholder="请填写收货人姓名">
+                            </li>
+                            <li>
+                                <p>联系电话：</p>
+                                <input type="" name="" placeholder="请填写联系电话">
+                            </li>
+                            <li>
+                                <p>收货地址：</p>
+                                <input type="" name="" placeholder="请填写收货地址">
+                            </li>
+                            <li>
+                                <p>详细地址：</p>
+                                <input type="" name="" placeholder="请填写详细地址">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="member_tj">
+            <input type="button" name="" value="确认开票">
+            <p>注：请仔细核对开票信息！</p>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/mobile.js"></script>
+<script type="text/javascript" src="js/layui/layui.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+        var t = $("#text_box");
+        //数量增加操作
+        $("#add").click(function(){
+            t.val(parseInt(t.val())+1)
+            if (parseInt(t.val())!=1){
+            }
+        })
+        //数量减少操作
+        $("#min").click(function(){
+            t.val(parseInt(t.val())-1);
+            if (parseInt(t.val())<=1){
+                t.val(1);
+            }
+        })
+    });
+    layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form;
+
+        form.on('switch(switchTest)', function(data){
+            if(this.checked==true){
+                $('.member_invoice_nr').show();
+            }else{
+                $('.member_invoice_nr').hide();
+            };
+        });
+    })
+</script>

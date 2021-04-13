@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>我的积分</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/personal.css" />
+  <link rel="stylesheet" href="css/swiper.min.css" />
+  <link rel="stylesheet" href="js/layui/css/layui.css" />
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="section">
+        <div class="integral_my_bt">
+            <div class="hang">
+                <span>2,192</span>
+                <img  onclick="window.location.href='integral_rule.html'" src="images/bt_bj.png">
+            </div>
+            <p>当前积分</p>
+        </div>
+        <div class="integral_my_gn">
+            <ul>
+                <li  onclick="window.location.href='member_opening.html'">
+                    <img src="images/jf_dx.png">
+                    <span>积分抵现</span>
+                    <p>积分可以当钱花</p>
+                </li>
+                <p class="xian"></p>
+                <li  onclick="window.location.href='integral_exchange.html'">
+                    <img src="images/jf_dh.png">
+                    <span>积分兑换</span>
+                    <p>兑换会员体验</p>
+                </li>
+            </ul>
+        </div>
+        <div class="integral_my_nr">
+            <div class="order_dh" style="margin-bottom: 0">
+                <ul>
+                    <li class="active">
+                        <span>全部</span>
+                    </li>
+                    <p></p>
+                    <li>
+                        <span>获取</span>
+                    </li>
+                    <p></p>
+                    <li>
+                        <span>使用</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="integral_my_list">
+                <ul>
+                    <li>
+                        <div class="my_list_left">
+                            <span>每日登陆</span>
+                            <p>2019-07-25  15:55</p>
+                        </div>
+                        <p class="my_list_right my_jia">+5</p>
+                    </li>
+                    <li>
+                        <div class="my_list_left">
+                            <span>每日登陆</span>
+                            <p>2019-07-25  15:55</p>
+                        </div>
+                        <p class="my_list_right my_jia">+5</p>
+                    </li>
+                    <li>
+                        <div class="my_list_left">
+                            <span>每日登陆</span>
+                            <p>2019-07-25  15:55</p>
+                        </div>
+                        <p class="my_list_right my_jia">+5</p>
+                    </li>
+                    <li>
+                        <div class="my_list_left">
+                            <span>每日登陆</span>
+                            <p>2019-07-25  15:55</p>
+                        </div>
+                        <p class="my_list_right my_jian">-205</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/mobile.js"></script>
+<script type="text/javascript" src="js/layui/layui.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+        $('.order_dh ul li').click(function(){
+            $(this).addClass('active');
+            $(this).siblings().removeClass('active');
+        })
+
+    });
+</script>
