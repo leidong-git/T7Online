@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>我的订单</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+  <link rel="stylesheet" type="text/css" href="js/layui/css/layui.css">
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+	<!-- 支付 -->
+	<div class="payment">
+		<div class="payment_nr">
+			<div class="payment_title">
+				<p>订单编号：<span>115482115665</span></p>
+				<p>支付金额：<i>￥1888.00</i></p>
+			</div>
+
+			<div class="payment_content">
+				<div class="payment_list">
+					<a href="javascript:;" class="active">
+						<div class="parallelogram">推荐</div>
+						<img src="images/payment_zfb.png">
+						<img class="payment_xz" src="images/payment_xz.png">
+					</a>
+					<a href="javascript:;">
+						<img src="images/payment_wx.png">
+						<img class="payment_xz" src="images/payment_xz.png">
+					</a>
+					<a href="javascript:;">
+						<img src="images/payment_dgzf.png">
+						<img class="payment_xz" src="images/payment_xz.png">
+					</a>
+				</div>
+				<div class="payment_content_nr">
+					<div class="payment_content_list">
+						<span class="payment_content_list_title">推荐扫码支付1</span>
+						<div class="content_sm">
+							<div class="content_sm_ewm">
+								<img class="ewm" src="images/ewm_zfb.jpg">
+								<di class="ewm_sys">
+									<img class="sys" src="images/ewm_zfb_sm.png">
+									<span>打开手机支付宝</br>扫一扫继续付款</span>
+								</di>
+							</div>
+							<p>支付金额：<i>￥1888.00</i></span>
+						</div>
+					</div>
+					<div class="payment_content_list">
+						<span class="payment_content_list_title">推荐扫码支付2</span>
+						<div class="content_sm">
+							<div class="content_sm_ewm">
+								<img class="ewm" src="images/ewm_zfb.jpg">
+								<di class="ewm_sys">
+									<img class="sys" src="images/ewm_wx_sm.png">
+									<span>打开手机支付宝</br>扫一扫继续付款</span>
+								</di>
+							</div>
+							<p>支付金额：<i>￥1888.00</i></span>
+						</div>
+					</div>
+					<div class="payment_content_list">
+						<div class="payment_hk_title">
+							<span>请于24小时内完成转账，我们会尽快确认到账并开通服务。</br>如您又任何疑问，请通过在线客服或发送邮件至<i>zxl@T7ol.com</i>咨询。</span>
+							<div class="payment_hk_zx">
+								<img src="images/payment_hk_zx_img.png">
+								<div class="lxfs">
+									<span>客服热线</span>
+									<i>023-68071290</i>
+								</div>
+							</div>
+						</div>
+						<div class="payment_hk_nr">
+							<div class="account_title" style="border:0; padding:0;">
+								<p></p>
+								<span>对公转账流程</span>
+							</div>
+							<div class="hk_nr_list">
+								<p>第一步：对公汇款</p>
+								<span>开户名称：重庆天气在线科技有限公司</span>
+								<span>开户银行：建设银行重庆渝中支行大坪分理处</span>
+								<span>开户帐号：5005 0101 4000 0000 00345</span>
+								<span>汇款金额：<i>￥1888.00</i></span>
+								<span>汇款备注：订单号：<b>MK1251511211 &nbsp;&nbsp;&nbsp;&nbsp;</b>帐号：<a>185465154545</a></span>
+							</div>
+
+							<i class="fa  fa-angle-double-right hk_nr_list_left"></i>
+
+							<div class="hk_nr_list">
+								<p>第二步：订单开通</p>
+								<span>拨打客服电话：023-68071290或</br>发送邮件到zxl@T7ol.com</span>
+								<span>提供对公支付电子回单、数据超市帐号、订单号确认后悔尽快为您开通服务！</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/layui/layui.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.payment_list a').click(function(){
+			var index = $(this).index();
+			$(this).addClass('active').siblings().removeClass('active');
+			$('.payment_content_nr .payment_content_list').eq(index).show().siblings().hide();
+		})
+
+		
+	})
+
+
+	/*引用layui*/
+	layui.use(['form', 'layedit', 'laydate','element','layer'], function(){
+      var form = layui.form
+      ,layer = layui.layer
+      ,layedit = layui.layedit
+      ,laydate = layui.laydate
+      ,$ = layui.jquery
+      ,element = layui.element;
+    })
+</script>
+</html>	

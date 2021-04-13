@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>index</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+  <link rel="stylesheet" type="text/css" href="js/layui/css/layui.css">
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+  <style type="text/css">
+	.swiper-button-prev, .swiper-container-rtl .swiper-button-next{
+		background-image: none !important;
+		width: 95px;
+		height: 30px;
+		margin-top: 0;
+		text-decoration: none;
+		border: none;
+		outline: none;
+		left: 42%;
+		background: #fff;
+		border-radius: 50px;
+	    border:1px solid #b4b4b4;
+	    top: 90%;
+	    opacity: 1;
+	    text-align: center;
+	    color: #b4b4b4;
+	}
+	.swiper-button-next, .swiper-container-rtl .swiper-button-prev{
+		background-image: none !important;
+		width: 95px;
+		height: 30px;
+		margin-top: 0;
+		text-decoration: none;
+	    border: none;
+	    right: 42%;
+	    outline: none;
+	    background: #fff;
+	    border-radius: 50px;
+	    border:1px solid #b4b4b4;
+	    top: 90%;
+	    opacity: 1;
+	    text-align: center;
+	    color: #b4b4b4;
+	}
+
+	.swiper-button-prev i, .swiper-button-next i{
+		font-size: 20px;
+		line-height: 30px;
+	}
+	.swiper-button-prev:hover, .swiper-button-next:hover{
+		background: #468ffc;
+		border:1px solid #7aafff;
+		color: #fff;
+	}
+  </style>
+</head>
+<body>
+		<!-- banner -->
+		<div class="banner">
+			<div class="banner_nr swiper-container swiper-no-swiping">
+				<ul class="swiper-wrapper">
+	                <li class="swiper-slide">
+	                	<img src="images/banner1.jpg">
+	                </li>
+					<li class="swiper-slide">
+	                	<img src="images/banner2.jpg">
+	                </li>
+	                <li class="swiper-slide">
+	                	<img src="images/banner3.jpg">
+	                </li>
+	                <li class="swiper-slide">
+	                	<img src="images/banner4.jpg">
+	                </li>
+				</ul>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+
+		<!-- 数据超市 -->
+		<div class="supermarket">
+			<div class="supermarket_nr">
+				<div class="index_title">
+					<p class="index_title_xian_left"></p>
+					<span class="index_title_name">数据超市</span>
+					<p class="index_title_xian_right"></p>
+					<div class="title_an">
+						<ul>
+							<li>详情介绍<i class="fa fa-angle-right"></i></li>
+							<li class="active">数据目录<i class="fa fa-angle-right"></i></li>
+							<li>数据选购<i class="fa fa-angle-right"></i></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="supermarket_content">
+					<ul>
+						<li>
+							<img src="images/supermarket_list1.png">
+						</li>
+						<li>
+							<img src="images/supermarket_list1.png">
+						</li>
+						<li>
+							<img src="images/supermarket_list1.png">
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- 移动服务 -->
+		<div class="mobile">
+			<div class="mobile_nr">
+				<div class="mobile_banner swiper-container swiper-no-swiping">
+					<ul class="swiper-wrapper">
+						<li class="swiper-slide">
+							<img src="images/mobile_img1.png">
+						</li>
+						<li class="swiper-slide swiper-slide-active">
+							<img src="images/mobile_img2.png">
+						</li>
+						<li class="swiper-slide">
+							<img src="images/mobile_img3.png">
+						</li>
+					</ul>
+				</div>
+				<div class="mobile_download">
+					<div class="index_title index_title_download">
+						<span class="index_title_name">移动服务</span>
+						<div class="title_xq">
+							<p>精彩生活  随时随地</p>
+						</div>
+					</div>
+					<div class="download_list">
+						<ul>
+							<li>
+								<span>微信公众号</span>
+								<div class="download_list_ewm">
+									<img src="images/ewm.png">
+								</div>
+							</li>
+							<li>
+								<span>APP</span>
+								<div class="download_list_ewm">
+									<img src="images/ewm.png">
+								</div>
+							</li>
+							<li>
+								<span>专项服务</span>
+								<div class="download_list_ewm">
+									<img src="images/ewm.png">
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 天气插件 -->
+		<div class="assistant">
+			<div class="assistant_nr">
+				<div class="index_title index_title_assistant">
+					<p class="index_title_xian_left"></p>
+					<span class="index_title_name">天气插件</span>
+					<p class="index_title_xian_right"></p>
+					<div class="title_xq">
+						<p>天气插件的简介、保姆机器人等天气插件的简介、保姆机器人等</p>
+					</div>
+				</div>
+
+				<div class="assistant_content">
+					<div class="assistant_content_img"></div>
+					<div class="assistant_list swiper-container swiper-no-swiping">
+						<ul class="swiper-wrapper">
+	                		<li class="swiper-slide">
+	                			<div class="list_xian">
+	                				<p></p>
+	                			</div>
+	                			<div class="list_nr">
+	                				<img class="assistant_img" src="images/assistant_img.png">
+	                				<img class="assistant_img1" src="images/assistant_img1.png">
+	                				<span>天气插件A</span>
+	                				<p>再也无需购买XX天气服务轻松实现天气访问</p>
+	                			</div>
+	                		</li>
+							<li class="swiper-slide">
+								<div class="list_xian">
+	                				<p></p>
+	                			</div>
+	                			<div class="list_nr">
+	                				<img class="assistant_img" src="images/assistant_img.png">
+	                				<img class="assistant_img1" src="images/assistant_img1.png">
+	                				<span>天气插件B</span>
+	                				<p>再也无需购买XX天气服务轻松实现天气访问</p>
+	                			</div>
+							</li>
+							<li class="swiper-slide">
+								<div class="list_xian">
+	                				<p></p>
+	                			</div>
+	                			<div class="list_nr">
+	                				<img class="assistant_img" src="images/assistant_img.png">
+	                				<img class="assistant_img1" src="images/assistant_img1.png">
+	                				<span>天气插件C</span>
+	                				<p>再也无需购买XX天气服务轻松实现天气访问</p>
+	                			</div>
+							</li>
+							<li class="swiper-slide">
+								<div class="list_xian">
+	                				<p></p>
+	                			</div>
+	                			<div class="list_nr">
+	                				<img class="assistant_img" src="images/assistant_img.png">
+	                				<img class="assistant_img1" src="images/assistant_img1.png">
+	                				<span>天气插件D</span>
+	                				<p>再也无需购买XX天气服务轻松实现天气访问</p>
+	                			</div>
+							</li>
+						</ul>
+						<!-- Add Arrows -->
+					    <div class="swiper-button-next"><i class="fa fa-long-arrow-right"></i></div>
+					    <div class="swiper-button-prev"><i class="fa fa-long-arrow-left"></i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 合作伙伴 -->
+		<div class="partner">
+			<div class="partner_nr">
+				<div class="index_title">
+					<p class="index_title_xian_left"></p>
+					<span class="index_title_name">合作伙伴</span>
+					<p class="index_title_xian_right"></p>
+					<div class="title_xq">
+						<p>我们已为公众及合作伙伴提供了<i id="show" shownum="24542154">24，542，154</i>次精准的天气预报</p>
+					</div>
+				</div>
+				<div class="partner_list">
+					<ul>
+						<li><img src="images/partner_list1.png"></li>
+						<li><img src="images/partner_list2.png"></li>
+						<li><img src="images/partner_list3.png"></li>
+						<li><img src="images/partner_list4.png"></li>
+						<li><img src="images/partner_list1.png"></li>
+						<li><img src="images/partner_list2.png"></li>
+						<li><img src="images/partner_list3.png"></li>
+						<li><img src="images/partner_list4.png"></li>
+						<li><img src="images/partner_list1.png"></li>
+						<li><img src="images/partner_list2.png"></li>
+						<li><img src="images/partner_list3.png"></li>
+						<li><img src="images/partner_list4.png"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/layui/layui.js"></script>
+<script type="text/javascript" src="js/swiper4.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//banner轮播
+		var swiper = new Swiper('.banner_nr', {
+	        effect: 'fade',
+	        loop:true,
+	        autoplay:{
+	      	    delay: 4000,
+		        disableOnInteraction: false,
+		    },
+	        pagination: {
+	        	el: '.swiper-pagination',
+	        },
+	    });
+
+
+	    var swiper1 = new Swiper('.mobile_banner', {
+	        slidesPerView: 3,
+		    spaceBetween: 30,
+			centeredSlides: true,
+			loop:true,
+			autoplay:{
+	      	    delay: 3000,
+		        disableOnInteraction: false,
+		    },
+	    });
+
+	    var swiper1 = new Swiper('.assistant_list', {
+	        slidesPerView: 4,
+		    spaceBetween: 48,
+			centeredSlides: false,
+			loop:true,
+			// autoplay:{
+	  //     	    delay: 3000,
+		 //        disableOnInteraction: false,
+		 //    },
+			navigation: {
+	        	nextEl: '.swiper-button-next',
+	        	prevEl: '.swiper-button-prev',
+	      	},
+	    });
+
+
+	    // 数字增加
+		setInterval("Refresh();", 3000);
+
+
+		// 下载切换
+		$('.download_list ul li').hover(function(){
+			$(this).find('.download_list_ewm').show();
+			$(this).siblings().find('.download_list_ewm').hide();
+		},function(){
+
+		})
+	})
+
+	function Refresh() {
+		var min = 2; //生成的最小的数字，比如200
+		var max = 5; //生成的最大的数字，比如500
+		//增加随机数
+		var shownum = parseInt(Math.random() * (max - min + 1) + min);
+		//累加值
+		var shownum = shownum + parseInt($('#show').attr('shownum'));
+		$('#show').attr('shownum',shownum);
+		//赋值
+		$('#show').text(formatNum(shownum));
+	};
+
+
+	//将数字串转换成带逗号的显示方式
+	function formatNum(num) {
+      if(!/^([+\-])?(\d+)(\.\d+)?$/.test(num)){
+        alert("wrong!");
+        return num;
+      }
+      let a = RegExp.$1;
+      let b = RegExp.$2;
+      let c = RegExp.$3;
+      let re = new RegExp().compile("(\\d)(\\d{3})(，|$)");
+      while(re.test(b))
+        b = b.replace(re,"$1，$2$3");
+      return a +""+ b +""+ c;
+    };
+
+	/*引用layui*/
+	layui.use(['form', 'layedit', 'laydate','element','layer'], function(){
+      var form = layui.form
+      ,layer = layui.layer
+      ,layedit = layui.layedit
+      ,laydate = layui.laydate
+      ,$ = layui.jquery
+      ,element = layui.element;
+    })
+
+	
+</script>
+</html>	
+
+
+
+
+	

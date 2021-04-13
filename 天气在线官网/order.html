@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>我的订单</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+  <link rel="stylesheet" type="text/css" href="js/layui/css/layui.css">
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+	<!-- 我的订单 -->
+	<div class="order">
+		<div class="order_nr">
+			<div class="statistics">
+				<div class="account_title">
+					<p></p>
+					<span>我的订单</span>
+				</div>
+				<div class="order_content">
+					<div class="order_table_list">
+						<ul>
+							<li>产品类型</li>
+							<li>使用时长</li>
+							<li>地区</li>
+							<li>小计金额</li>
+							<li>合计金额</li>
+						</ul>
+					</div>
+					<div class="order_table">
+						<ul>
+							<li>
+								<div class="order_table_title">
+									<p>订单号：<i>15454641514</i>|<span>2020-11-18  21:32:47</span></p>
+									<a hsrc="order_interface_list.html" href="javascript:;">查看接口</a>
+								</div>
+								<table class="order_table_nr">
+									<tbody>
+										<tr>
+											<td>逐小时城市预报（带当前数据）</td>
+											<td>3个月</td>
+											<td>重庆/四川/贵州/云南</td>
+											<td>¥188.00</td>
+											<td rowspan="4">
+												<span>¥9545.0</span></br>
+												<a class="wzf" href="javascript:;"  hsrc="order_payment.html">未支付</a></br>
+												<i  hsrc="invoice.html">开具发票</i>
+											</td>
+										</tr>
+										<tr>
+											<td>逐日城市预报</td>
+											<td>3个月</td>
+											<td>重庆/四川/贵州/云南</td>
+											<td>¥188.00</td>
+										</tr>
+										<tr>
+											<td>专家天气图（体感温度）</td>
+											<td>3个月</td>
+											<td>重庆/四川/贵州/云南</td>
+											<td>¥188.00</td>
+										</tr>
+									</tbody>
+								</table>
+							</li>
+							<li>
+								<div class="order_table_title">
+									<p>订单号：<i>234343535</i>|<span>2020-11-18  21:32:47</span></p>
+									<a hsrc="order_interface_list.html" href="javascript:;">查看接口</a>
+								</div>
+								<table class="order_table_nr">
+									<tbody>
+										<tr>
+											<td>逐小时城市预报（带当前数据）</td>
+											<td>3个月</td>
+											<td>重庆/四川/贵州/云南</td>
+											<td>¥188.00</td>
+											<td rowspan="4">
+												<span>¥9545.0</span></br>
+												<a class="yzf" href="javascript:;">已支付</a></br>
+												<i class="payment" hsrc="invoice.html">开具发票</i>
+											</td>
+										</tr>
+										<tr>
+											<td>专家天气图（CAPE）</td>
+											<td>3个月</td>
+											<td>重庆/四川/贵州/云南</td>
+											<td>¥188.00</td>
+										</tr>
+									</tbody>
+								</table>
+							</li>
+							<li>
+								<div class="order_table_title">
+									<p>订单号：<i>35354656</i>|<span>2020-11-18  21:32:47</span></p>
+									<a hsrc="order_interface_list.html" href="javascript:;">查看接口</a>
+								</div>
+								<table class="order_table_nr">
+									<tbody>
+										<tr>
+											<td>逐小时城市预报（带当前数据）</td>
+											<td>3个月</td>
+											<td>重庆/四川/贵州/云南</td>
+											<td>¥188.00</td>
+											<td rowspan="4">
+												<span>¥9545.0</span></br>
+												<a class="sy" href="">试用订单</a></br>
+											</td>
+										</tr>
+										<tr>
+											<td>逐日城市预报</td>
+											<td>3个月</td>
+											<td>重庆/四川/贵州/云南</td>
+											<td>¥188.00</td>
+										</tr>
+										<tr>
+											<td>专家天气图（CAPE）</td>
+											<td>3个月</td>
+											<td>重庆/四川/贵州/云南</td>
+											<td>¥188.00</td>
+										</tr>
+									</tbody>
+								</table>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/layui/layui.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// 调用父页面事件
+		$('.order_table_title a').click(function(){
+			var Hsrc = $(this).attr('hsrc');
+			window.parent.data_hrcf(Hsrc);
+		});
+
+		// 调用父页面事件
+		$('.order_table_nr a').click(function(){
+			var Hsrc = $(this).attr('hsrc');
+			window.parent.data_hrcf(Hsrc);
+		});
+
+		// 调用父页面事件
+		$('.payment').click(function(){
+			var Hsrc = $(this).attr('hsrc');
+			window.parent.data_hrcf(Hsrc);
+		})
+	})
+
+
+	/*引用layui*/
+	layui.use(['form', 'layedit', 'laydate','element','layer'], function(){
+      var form = layui.form
+      ,layer = layui.layer
+      ,layedit = layui.layedit
+      ,laydate = layui.laydate
+      ,$ = layui.jquery
+      ,element = layui.element;
+    })
+</script>
+</html>	

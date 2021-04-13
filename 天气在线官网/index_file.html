@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>接口文档</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+  <link rel="stylesheet" type="text/css" href="js/layui/css/layui.css">
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+	<!-- 我的订单 -->
+	<div class="file">
+		<div class="file_nr">
+			<div class="file_nr_left">
+				<ul>
+					<li class="le_yj">
+						<div class="yj_zi">
+							<p></p>
+							<span>API接口文档</span>
+							<i class="fa le_top fa-angle-right"></i>
+						</div>
+						<ol>
+							<li class="le_ej">
+								<div class="ej_title">
+									<span>开始使用</span>
+									<i class="fa le_e_top fa-angle-right"></i>
+								</div>
+							</li>
+							<li class="le_ej">
+								<div class="ej_title">
+									<span>天气类</span>
+									<i class="fa le_e_top fa-angle-right"></i>
+								</div>
+							</li>
+							<li class="le_ej">
+								<div class="ej_title">
+									<span>空气类</span>
+									<i class="fa le_e_top fa-angle-right"></i>
+								</div>
+								<div class="le_sj">
+									<a class="" href="javascript:;"><b>◆</b>生活指数</a>
+									<a href="javascript:;"><b>◆</b>机动车尾号限行</a>
+									<a href="javascript:;"><b>◆</b>农历、节气、生肖</a>
+								</div>
+							</li>
+							<li class="le_ej">
+								<div class="ej_title">
+									<span>生活类</span>
+									<i class="fa le_e_top fa-angle-right"></i>
+								</div>
+								<div class="le_sj">
+									<a class="" href="javascript:;"><b>◆</b>生活指数</a>
+									<a href="javascript:;"><b>◆</b>机动车尾号限行</a>
+									<a href="javascript:;"><b>◆</b>农历、节气、生肖</a>
+								</div>
+							</li>
+							<li class="le_ej">
+								<div class="ej_title">
+									<span>地理类</span>
+									<i class="fa le_e_top fa-angle-right"></i>
+								</div>
+							</li>
+						</ol>
+					</li>
+					<li class="le_yj">
+						<div class="yj_zi">
+							<p></p>
+							<span>天气插件文档</span>
+							<i class="fa le_top fa-angle-right"></i>
+						</div>
+						<ol>
+							<li class="le_ej">
+								<div class="ej_title">
+									<span>气象机器人</span>
+									<i class="fa le_e_top fa-angle-right"></i>
+								</div>
+							</li>
+							<li class="le_ej">
+								<div class="ej_title">
+									<span>天气保姆</span>
+									<i class="fa le_e_top fa-angle-right"></i>
+								</div>
+							</li>
+						</ol>
+					</li>
+					<li class="le_yj">
+						<div class="yj_zi">
+							<p></p>
+							<span>账号相关问题</span>
+							<i class="fa le_top fa-angle-right"></i>
+						</div>
+						<ol>
+							<li class="le_ej">
+								<div class="ej_title">
+									<span>重置密码</span>
+									<i class="fa le_e_top fa-angle-right"></i>
+								</div>
+							</li>
+							<li class="le_ej">
+								<div class="ej_title">
+									<span>更改权限</span>
+									<i class="fa le_e_top fa-angle-right"></i>
+								</div>
+							</li>
+						</ol>
+					</li>
+					<li class="le_yj">
+						<div class="yj_zi">
+							<p></p>
+							<span>产品相关问题</span>
+							<i class="fa le_top fa-angle-right"></i>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="file_nr_right">
+				<iframe class="file_content" id="file_content" onLoad="iFrameHeight()" frameborder="0" scrolling="no" src="file_content"></iframe>
+			</div>
+		</div>
+	</div>
+	
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/layui/layui.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//一级菜单
+		$('.file_nr_left ul .le_yj').click(function(){
+			var Ysrc = $(this).attr('ysrc');
+			if($(this).find('ol').length == 0){
+				// 没有子二级
+				$(this).siblings().children('ol:last-child').slideUp();
+				$(this).siblings().children('ol:last-child').find('li').removeClass('active');
+				$(this).siblings().removeClass('yj_xz');
+				$(this).siblings().find('.yj_zi').find('i').removeClass('rotate');
+				$(this).addClass('yj_xz');
+				$(this).find('.yj_zi').find('i').addClass('rotate');
+				$('.le_right_iframe').attr('src',Ysrc);
+			}else{
+				if($(this).hasClass('yj_xz')){
+					$(this).children('ol:last-child').slideUp();
+					$(this).removeClass('yj_xz');
+					$(this).find('.yj_zi').find('i').removeClass('rotate');
+				}else{
+					$(this).children('ol:last-child').slideDown();
+					$(this).siblings().children('ol:last-child').slideUp();
+					$(this).siblings().removeClass('yj_xz');
+					$(this).siblings().find('.yj_zi').find('i').removeClass('rotate');
+					$(this).addClass('yj_xz');
+					$(this).find('.yj_zi').find('i').addClass('rotate');
+				}
+			}
+		});
+
+		//二级
+		$('.le_yj ol .le_ej').click(function(event){
+			event.stopPropagation();
+			var Ysrc = $(this).attr('ysrc');
+			if($(this).find('.le_sj').length == 0){
+				$(this).siblings().children('.le_sj').slideUp();
+				$(this).siblings().children('.le_sj').find('a').removeClass('active');
+				$(this).siblings().removeClass('active');
+				$(this).siblings().find('.ej_title').find('i').removeClass('rotate');
+				$(this).parents('.le_yj').siblings().find('.le_ej').removeClass('active');
+				$(this).addClass('active');
+				$(this).find('.ej_title').find('i').addClass('rotate');
+				$('.le_right_iframe').attr('src',Ysrc);
+			}else{
+				if($(this).hasClass('active')){
+					$(this).children('.le_sj').slideUp();
+					$(this).removeClass('active');
+					$(this).find('.ej_title').find('i').removeClass('rotate');
+				}else{
+					$(this).children('.le_sj').slideDown();
+					$(this).siblings().children('.le_sj').slideUp();
+					$(this).siblings().children('.le_sj').find('a').removeClass('active');
+					$(this).siblings().removeClass('active');
+					$(this).siblings().find('.ej_title').find('i').removeClass('rotate');
+					$(this).addClass('active');
+					$(this).find('.ej_title').find('i').addClass('rotate');
+				}
+			}
+		});
+
+		//三级
+		$('.le_yj .le_sj a').click(function(event){
+			event.stopPropagation();
+			var Ysrc = $(this).attr('ysrc');
+			$('.le_right_iframe').attr('src',Ysrc);
+			if($(this).hasClass('active')){
+				$(this).removeClass('active');
+			}else{
+				$(this).siblings().removeClass('active');
+				$(this).addClass('active');
+			}
+		})
+	})
+
+
+	//获取iframe内容页面高度赋值给iframe
+	function iFrameHeight() {
+		setTimeout(function(){
+			var ifm= document.getElementById("file_content");
+	        var subWeb = document.frames ? document.frames["file_content"].document : ifm.contentDocument;
+	        if(ifm != null && subWeb != null) {
+	            ifm.style.height = 'auto';//关键这一句，先取消掉之前iframe设置的高度
+	            ifm.style.height = subWeb.body.scrollHeight+'px';
+	        }
+		},2000)
+    };
+
+
+	/*引用layui*/
+	layui.use(['form', 'layedit', 'laydate','element','layer'], function(){
+      var form = layui.form
+      ,layer = layui.layer
+      ,layedit = layui.layedit
+      ,laydate = layui.laydate
+      ,$ = layui.jquery
+      ,element = layui.element;
+    })
+</script>
+</html>	

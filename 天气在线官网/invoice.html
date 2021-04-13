@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>开具发票</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+  <link rel="stylesheet" type="text/css" href="js/layui/css/layui.css">
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+	<!-- 我的订单 -->
+	<div class="invoice">
+		<div class="invoice_nr">
+			<div class="statistics" style="position: relative;">
+				<div class="account_title">
+					<p></p>
+					<span>开具发票</span>
+				</div>
+				<div class="invoice_content">
+					<img class="invoice_state" src="images/invoice_ysq.png">
+					<div class="invoice_content_js invoice_qh invoice_z">
+						<div class="invoice_content_js_nr">
+							<ul>
+								<li class="perfect_title_list" style="margin:0">
+									<span>抬头类型：</span>
+									<label class="xk_radio">
+										<input class="radio" checked="checked" type="radio" name="radioTime">
+										<h1>企业/单位</h1>
+									</label>
+									<label class="xk_radio">
+										<input class="radio" type="radio" name="radioTime">
+										<h1>个人</h1>
+									</label>
+								</li>
+								<li>
+									<span>发票类型：</span>
+									<button class="anniu_no" disabled="disabled" title="此功能暂未开放">电子普通发票</button>
+									<button>纸质普通发票</button>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="invoice_content_js invoice_qh">
+						<div class="invoice_content_js_nr invoice_content_js_nr_bottom">
+							<p><span>开票信息</span>(增值税普通发票)</p>
+							<ul>
+								<li>
+									<span><i>*</i>公司名称：</span>
+									<input type="text" placeholder="开票抬头" />
+								</li>
+								<li>
+									<span><i>*</i>单位税号：</span>
+									<input type="text" placeholder="输入税号" />
+								</li>
+								<li>
+									<span>注册地址：</span>
+									<input type="text" placeholder="选填" />
+								</li>
+								<li>
+									<span>注册电话：</span>
+									<input type="text" placeholder="选填" />
+								</li>
+								<li>
+									<span>开户银行：</span>
+									<input type="text" placeholder="选填" />
+								</li>
+								<li>
+									<span>银行账号：</span>
+									<input type="text" placeholder="选填" />
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="invoice_content_js invoice_qh">
+						<div class="invoice_content_js_nr invoice_content_js_nr_bottom">
+							<p><span>开票信息</span>(增值税普通发票)</p>
+							<ul>
+								<li>
+									<span><i>*</i>发票抬头：</span>
+									<input type="text" placeholder="开票抬头" />
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="invoice_content_js">
+						<div class="invoice_content_js_nr invoice_content_js_nr_bottom">
+							<p><span>收货地址</span>(纸质发票收货地址)</p>
+							<ul>
+								<li>
+									<span>收货地址：</span>
+									<input type="text" placeholder="收货地址" />
+								</li>
+								<li>
+									<span>收货人：</span>
+									<input type="text" placeholder="收货人" />
+								</li>
+								<li>
+									<span>联系电话：</span>
+									<input type="text" placeholder="联系电话" />
+								</li>
+								<li>
+									<span>邮政编码：</span>
+									<input type="text" placeholder="邮政编码" />
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="invoice_content_js">
+						<div class="invoice_content_js_nr invoice_content_js_an">
+							<ul>
+								<li>
+									<span></span>
+									<button class="anniu_close">取消</button>
+									<button>确认开票</button>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/layui/layui.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//切换个人/公司
+		$('.invoice_qh').eq(1).show();
+		$('.xk_radio').click(function(){
+			var index = $(this).index();
+			console.log(index);
+			$('.invoice_qh').hide();
+			$('.invoice_qh').eq(index).show();
+		});
+	})
+
+
+	/*引用layui*/
+	layui.use(['form', 'layedit', 'laydate','element','layer'], function(){
+      var form = layui.form
+      ,layer = layui.layer
+      ,layedit = layui.layedit
+      ,laydate = layui.laydate
+      ,$ = layui.jquery
+      ,element = layui.element;
+    })
+</script>
+</html>	

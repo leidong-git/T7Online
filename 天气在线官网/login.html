@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>index</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="js/layui/css/layui.css">
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="section">
+		<div class="login_nav">
+			<ul>
+				<li id="login" class="active">登录</li>
+				<p></p>
+				<li id="register">注册</li>
+			</ul>
+		</div>
+
+		<div class="login_nr">
+			<ul>
+				<li class="error">
+					<span>邮箱/电话</span>
+					<input type="text" name="" placeholder="请输入邮箱/电话">
+					<p class="loginTips">不能为空</p>
+				</li>
+				<li class="error">
+					<input type="text" name="" placeholder="密码">
+					<p class="loginTips">密码错误</p>
+				</li>
+				<li style="justify-content: flex-end;">
+					<a href="javascript:;" id="find_password">忘记密码？</a>
+				</li>
+			</ul>
+			<button id="login_on">登录</button>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/layui/layui.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#register').click(function(){
+			parent.layer.closeAll();
+			parent.layer.open({
+				type: 2,
+				title: '',
+				shadeClose: true,
+				shade: 0.8,
+				area: ['520px', '650px'],
+				content: 'register.html' //iframe的url
+			}); 
+		})
+
+		// 忘记密码
+        $('#find_password').click(function(){
+			parent.layer.closeAll();
+			parent.layer.open({
+				type: 2,
+				title: '',
+				shadeClose: true,
+				shade: 0.8,
+				area: ['520px', '400px'],
+				content: 'find_password.html' //iframe的url
+			});
+		});
+
+        $('.login_nr ul li input').focus(function(){
+        	$(this).parents('li').removeClass('error');
+        	$(this).parents('li').addClass('active');
+        });
+
+        $('.login_nr ul li input').blur(function(){
+        	$(this).parents('li').removeClass('active');
+		});
+
+	})
+</script>
+</html>	

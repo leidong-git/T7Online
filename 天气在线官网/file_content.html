@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>index</title>
+  <link href="css/jquery.json-viewer.css" type="text/css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="interface">
+		<span class="interface_title">农历、节气、生肖</span>
+		<p class="interface_title_tips">查询任何一个公历日期对应的农历日期、农历传统节假日、二十四节气、天干地支纪年纪月纪日、及生肖属相。查询任何一个公历日期对应的农历日期、农历传统节假日、二十四节气、天干地支纪年纪月纪日、及生肖属相。</p>
+		<div class="interface_address">
+			<span class="interface_list_title">请求地址示例</span>
+			<div class="interface_address_nr">
+				<ul>
+					<li>
+						<i>•</i>从今天开始7天的农历和节气等 
+						<p>https://api.seniverse.com/v3/life/chinese_calendar.json?key=your_api_key&start=0&days=7</p>
+					</li>
+					<li>
+						<i>•</i>从指定日期开始7天的农历和节气等
+						<p>https://api.seniverse.com/v3/life/chinese_calendar.json?key=your_api_key&start=2014/1/31&days=7</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="interface_parameter">
+			<span class="interface_list_title">参数</span>
+			<table>
+				<thead>
+					<tr>
+						<th>参数名</th>
+						<th>类型</th>
+						<th>默认值</th>
+						<th>必须</th>
+						<th>备注</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>key</td>
+						<td>String</td>
+						<td>无</td>
+						<td>是</td>
+						<td>API密钥</td>
+					</tr>
+					<tr>
+						<td>strat</td>
+						<td>String</td>
+						<td>0</td>
+						<td>否</td>
+						<td>开始时间</td>
+					</tr>
+					<tr>
+						<td>end</td>
+						<td>String</td>
+						<td>0</td>
+						<td>否</td>
+						<td>结束时间</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="interface_result">
+			<span class="interface_list_title">返回结果</span>
+			<div class="interface_result_nr">
+				<textarea class="form-control" id="json-input" rows="15" style="display: none;">
+					{
+					  "id": 1001,
+					  "type": "donut",
+					  "name": "Cake",
+					  "description": "http://www.jq22.com",
+					  "price": 2.55,
+					  "available": {
+					    store: 42,
+					    warehouse: 600
+					  },
+					  "topping": [
+					    { "id": 5001, "type": "None" },
+					    { "id": 5002, "type": "Glazed" },
+					    { "id": 5005, "type": "Sugar" },
+					    { "id": 5003, "type": "Chocolate" },
+					    { "id": 5004, "type": "Maple" }
+					  ]
+					}					
+				</textarea>
+				<pre id="json-renderer"></pre>
+			</div>
+		</div>
+		<div class="interface_tips">
+			<div class="interface_tips_explain">
+				<p></p>
+				<div class="interface_tips_content">
+					<span>说明：</span>
+					<ul>
+						<li><i>•</i>点此<b>查看如何使用前名验证方式</b></li>
+						<li><i>•</i>点此<b>查看API公钥和私钥</b></li>
+					</ul>
+				</div>
+			</div>
+			<div class="interface_tips_careful">
+				<p></p>
+				<div class="interface_tips_content">
+					<span>注意：</span>
+					<ul>
+						<li><i>•</i>请求中的其它参数，例如 location、language 等，不参与签名。</li>
+						<li><i>•</i>点此<b>查看 API 产品的公钥和私钥。</b></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="js/jquery.json-viewer.js"></script>
+<script type="text/javascript">
+	$(function(){
+
+		try {
+		    var input = eval('(' + $('#json-input').val() + ')');
+          	console.log(input);
+		}
+		catch (error) {
+		    return alert("Cannot eval JSON: " + error);
+		}
+
+		var options = {
+	      collapsed: $('#collapsed').is('checked:checked'),
+	      withQuotes: $('#with-quotes').is(':checked')
+	    };
+
+	    $('#json-renderer').jsonViewer(input, options);
+	})	
+</script>
+</html>	
+
+
+
+
+	

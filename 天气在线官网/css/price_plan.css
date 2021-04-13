@@ -1,0 +1,207 @@
+.plan_top {
+	width: 100%;
+}
+
+.plan_box {
+	width: var(--width);
+	height: auto;
+	margin: 0 auto;
+}
+
+.plan_title,
+.plan_title_two {
+	font-size: 42px;
+	text-align: center;
+	color: #434343;
+	margin-top: 50px;
+}
+
+.plan_title_two {
+	font-size: 17px;
+	color: #909090;
+	margin-top: 10px;
+}
+
+.data_type {
+	width: 100%;
+	display: flex;
+	margin-top: 50px;
+	justify-content: space-between;
+}
+
+.data_type li {
+	width: 23.5%;
+	height: 500px;
+	border: 1px solid #cccccc;
+	border-right: none;
+	text-align: center;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.line {
+	width: 100%;
+	height: 5px;
+	position: absolute;
+	top: 0;
+	background: #1e73f1;
+	opacity: 0;
+}
+
+.data_type li:first-child {
+	width: 16%;
+}
+
+.data_type li:hover .line {
+	opacity: 1;
+}
+
+.data_type li:last-child {
+	border-right: 1px solid #cccccc;
+}
+
+.type_title {
+	font-size: 20px;
+	color: #434343;
+	text-align: center;
+	line-height: 500px;
+}
+
+.data_type_name {
+	width: 100px;
+	height: 100px;
+	font-size: 20px;
+	color: #ababab;
+	text-align: center;
+	line-height: 100px;
+	border-radius: 50%;
+	background: #fbfcfc;
+	margin: 30px auto 0 auto;
+}
+
+.data_beyond {
+	height: 100px;
+}
+
+.type_access,
+.type_num,
+.beyond {
+	font-size: 16px;
+	color: #434343;
+	margin-top: 30px;
+}
+
+.beyond {
+	margin-top: 10px;
+}
+
+.type_num {
+	color: #2e8a27;
+	margin-top: 10px;
+}
+
+.type_describe {
+	font-size: 16px;
+	color: #909090;
+	margin-top: 5px;
+	padding-bottom: 34px;
+	border-bottom: 1px solid #e8e9f0;
+}
+
+.type_describe p:nth-child(2) {
+	margin-top: 10px;
+}
+
+.data_money {
+	margin-top: 30px;
+	font-size: 16px;
+	color: #434343;
+	letter-spacing: 1px;
+}
+
+.data_money span {
+	color: #f55110;
+}
+
+.data_btn_trial {
+	width: 140px;
+	height: 40px;
+	color: #1e73f1;
+	font-size: 16px;
+	margin: 25px auto 0 auto;
+	line-height: 40px;
+	letter-spacing: 1px;
+	border-radius: 3px;
+	border: 1px solid #1e73f1;
+	cursor: pointer;
+}
+
+.ac_data_btn_trial {
+	background: #1e73f1;
+	color: #fff;
+}
+
+.data_type li:nth-child(3) .data_type_name {
+	color: #42ab42;
+	background: #f8fff8;
+}
+
+.data_type li:nth-child(4) .data_type_name {
+	color: #85c2c8;
+	background: #f3feff;
+}
+
+.data_type li:nth-child(5) .data_type_name {
+	color: #b29342;
+	background: #fffcf4;
+}
+
+/* 小时预报数据 */
+.hour_forecast_box li:nth-child(even) {
+	background: #f9f9fa;
+}
+
+.hour_forecast {
+	width: 100%;
+	height: 70px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.hour_forecast div {
+	width: 23.5%;
+	text-align: center;
+	border: 1px solid #cccccc;
+	border-right: none;
+	border-top: none;
+	box-sizing: border-box;
+}
+
+.hour_forecast div:first-child {
+	width: 16%;
+	font-size: 17px;
+	color: #434343;
+	line-height: 70px;
+}
+
+.hour_forecast div:last-child {
+	border-right: 1px solid #cccccc;
+}
+
+.hour_forecast div img {
+	margin-top: 24px;
+}
+
+.forecast_border {
+	border-left: 2px solid #c3c3c3 !important;
+	border-right: 1px solid #c3c3c3 !important;
+}
+
+.forecast_bottom_border {
+	border-bottom: 2px solid #c3c3c3 !important;
+}
+
+.forecast_border_last {
+	border-left: 2px solid #c3c3c3 !important;
+	border-right: 2px solid #c3c3c3 !important;
+}

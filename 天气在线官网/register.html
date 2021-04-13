@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>index</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="js/layui/css/layui.css">
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="section">
+		<div class="login_nav">
+			<ul>
+				<li id="login" >登录</li>
+				<p></p>
+				<li class="active">注册</li>
+			</ul>
+		</div>
+
+		<div class="register_nr">
+			<div class="login_nr">
+				<ul>
+					<li>
+						<span>邮箱</span>
+						<input type="text" name="" placeholder="请输入邮箱/电话">
+					</li>
+					<li>
+						<input type="text" name="" placeholder="密码">
+					</li>
+
+					<li>
+						<input type="text" name="" placeholder="手机号">
+					</li>
+
+					<li>
+						<input type="text" name="" style="width: 55%;" placeholder="验证码">
+						<button class="login_yzm" style="width: 40%;">获取验证码</button>
+					</li>
+					<li>
+						<label class="xk_checkbox">
+							<input class="checkbox" type="checkbox" name="">
+							<h1>我已阅读并同意<a id="contract" href="javascript:;">《天气在线服务协议》</a></h1>
+						</label>
+					</li>
+				</ul>
+				<button id="login_on">注册</button>
+			</div>
+
+			<div class="perfect">
+				<span class="perfect_title">完善更多信息 <i class="fa fa-angle-down"></i></span>
+				<div class="perfect_nr">
+					<div class="perfect_title_list">
+						<label class="xk_radio">
+							<input class="radio" checked="checked" type="radio" name="radioTime">
+							<h1>企业/单位</h1>
+						</label>
+						<label class="xk_radio">
+							<input class="radio" type="radio" name="radioTime">
+							<h1>个人</h1>
+						</label>
+					</div>
+					<div class="perfect_nr_list">
+						<ul>
+							<li>
+								<input type="text" name="" placeholder="企业/单位名称">
+							</li>
+							<li>
+								<input type="text" name="" placeholder="联系人">
+							</li>
+							<li>
+								<input type="text" name="" placeholder="联系方式">
+							</li>
+						</ul>
+					</div>
+					<div class="perfect_nr_list">
+						<ul>
+							<li>
+								<input type="text" name="" placeholder="联系人">
+							</li>
+							<li>
+								<input type="text" name="" placeholder="联系方式">
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/layui/layui.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//切换登录
+		$('#login').click(function(){
+			parent.layer.closeAll();
+			parent.layer.open({
+				type: 2,
+				title: '',
+				shadeClose: true,
+				shade: 0.8,
+				area: ['520px', '440px'],
+				content: 'login.html' //iframe的url
+			}); 
+		});
+
+		// 服务协议
+		$('#contract').click(function(){
+			parent.layer.closeAll();
+			window.parent.$("#contract_nr").click();//执行父页面的事件
+		});
+
+		$('.login_nr ul li input').focus(function(){
+        	$(this).parents('li').removeClass('error');
+        	$(this).parents('li').addClass('active');
+        });
+
+        $('.login_nr ul li input').blur(function(){
+        	$(this).parents('li').removeClass('active');
+		});
+
+
+		// 完善信息
+		$('.perfect_title').click(function(){
+			if($(this).hasClass('xz')){
+				$(this).find('i').removeClass("rotate1").addClass("rotate");
+				$('.perfect_nr').hide();
+				$(this).removeClass('xz');
+			}else{
+				$(this).find('i').removeClass("rotate").addClass("rotate1");
+				$('.perfect_nr').show();
+				$('.perfect_nr_list').eq(0).show();
+				$(this).addClass('xz');
+
+				$('.xk_radio').click(function(){
+					var index = $(this).index();
+					$('.perfect_nr_list').hide();
+					$('.perfect_nr_list').eq(index).show();
+				});
+			}
+		});
+
+
+        var validCode=true;
+		$(".login_yzm").click (function  () {
+			var time=60;
+			$(this).css({"cursor":"not-allowed"});
+            var $code=$(this);
+            if (validCode) {
+                validCode=false;
+                var t=setInterval(function  () {
+                    time--;
+                    $code.html(time+"秒后可重新获取");
+                    if (time==0) {
+                        clearInterval(t);
+                    	$code.html("重新获取");
+                    	$(".login_yzm").css({"cursor":"pointer"});
+                        validCode=true;
+                    }
+                },1000)
+            }
+		})
+	})
+</script>
+</html>	

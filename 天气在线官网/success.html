@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>index</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="js/layui/css/layui.css">
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="section">
+		<div class="success_nr">
+			<img src="images/success_icon.png">
+			<span>您已成功注册成为会员用户</br>立即开始数据选购吧！</span>
+			<button id="login">去登陆</button>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/layui/layui.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// 切换注册
+        $('#login').click(function(){
+			parent.layer.closeAll();
+			parent.layer.open({
+				type: 2,
+				title: '',
+				shadeClose: true,
+				shade: 0.8,
+				area: ['520px', '440px'],
+				content: 'login.html' //iframe的url
+			}); 
+		})
+	})
+</script>
+</html>	

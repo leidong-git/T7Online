@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>个人中心</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+  <link rel="stylesheet" type="text/css" href="js/layui/css/layui.css">
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="section_hui">
+		<div class="personal">
+			<div class="account">
+				<div class="account_title">
+					<p></p>
+					<span>账号信息</span>
+				</div>
+				<div class="account_nr">
+					<ul>
+						<li>
+							<span>企业/单位：</span>
+							<p>重庆天气在线科技有限公司</p>
+						</li>
+						<li>
+							<span>通讯地址：</span>
+							<div class="address_now">
+								<p class="address_now_name">重庆市渝中区大坪英利国际2号楼22-15#</p>
+							</div>
+							<div class="address_change">
+								<input style="width: 300px;" type="text" class="address_name" name="">
+							</div>
+							<a href="javascript:;" class="address_cz address_xg">修改地址</a>
+						</li>
+						<li>
+							<span>联系人：</span>
+							<div class="address_now">
+								<p class="address_now_name">周先生</p>
+							</div>
+							<div class="address_change">
+								<input type="text" class="address_name" name="">
+							</div>
+							<a href="javascript:;" class="address_cz">修改联系人</a>
+						</li>
+						<li>
+							<span>联系电话：</span>
+							<p>18580456325</p>
+							<a href="javascript:;" id="revise_phone">更换号码</a>
+						</li>
+						<li>
+							<span>邮&nbsp;&nbsp;&nbsp;箱：</span>
+							<p>12458168@qq.com</p>
+							<a href="javascript:;" id="revise_email">更换邮箱</a>
+						</li>
+						<li>
+							<span>登录密码：</span>
+							<p>********</p>
+							<a href="javascript:;"  id="revise_password">修改密码</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="statistics">
+				<div class="account_title">
+					<p></p>
+					<span>产品统计信息</span>
+				</div>
+				<div class="statistics_nr">
+					<table class="statistics_table">
+						<thead>
+							<tr>
+								<th>产品名称</th>
+								<th>开始时间</th>
+								<th>到期时间</th>
+								<th>接口使用次数</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>12小时逐小时预报</td>
+								<td>2020年11月08日  15:20</td>
+								<td>2021年11月08日  15:20</td>
+								<td>15415</td>
+							</tr>
+							<tr>
+								<td>24小时逐小时预报</td>
+								<td>2020年11月08日  15:20</td>
+								<td>2021年11月08日  15:20</td>
+								<td>15415</td>
+							</tr>
+							<tr>
+								<td>36小时逐小时预报</td>
+								<td>2020年11月08日  15:20</td>
+								<td>2021年11月08日  15:20</td>
+								<td>15415</td>
+							</tr>
+							<tr>
+								<td>72小时逐小时预报</td>
+								<td>2020年11月08日  15:20</td>
+								<td>2021年11月08日  15:20</td>
+								<td>15415</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/layui/layui.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// 公用修改地址/联系人
+		$('.address_cz').click(function(){
+			var address_now = $(this).parents('li').find('.address_now_name').text();//获取当前数据
+			address_now = address_now.replace(/^(\s|\u00A0)+/,'').replace(/(\s|\u00A0)+$/,'');
+			var address = $(this).parents('li').find('.address_name').val();
+			if($(this).hasClass('xz')){
+				$(this).removeClass('xz');
+				$(this).parents('li').removeClass('active');
+				if(address == ''){//修改时为空时赋原始值
+					$(this).parents('li').find('.address_now_name').text(address_now);
+				}else{//不为空时ajax修改数据库数据
+					$(this).parents('li').find('.address_now_name').text(address);
+					if($(this).hasClass('address_xg')){
+						$(this).text('修改地址');
+						// 修改地址
+						console.log('修改地址ajax');
+					}else{
+						$(this).text('修改联系人');
+						// 修改联系人
+						console.log('修改联系人ajax');
+					}
+				}
+			}else{
+				$(this).addClass('xz');
+				$(this).text('保存修改');
+				$(this).parents('li').find('.address_name').val(address_now);
+				$(this).parents('li').addClass('active');
+			}
+		});
+
+		// 修改电话号码
+        $('#revise_phone').click(function(){
+			parent.layer.open({
+				type: 2,
+				title: '',
+				shadeClose: true,
+				shade: 0.8,
+				area: ['520px', '380px'],
+				content: 'revise_phone.html' //iframe的url
+			}); 
+        });
+
+
+        // 修改邮箱
+        $('#revise_email').click(function(){
+			parent.layer.open({
+				type: 2,
+				title: '',
+				shadeClose: true,
+				shade: 0.8,
+				area: ['520px', '380px'],
+				content: 'revise_prev_mailbox.html' //iframe的url
+			}); 
+        });
+
+        // 修改密码
+        $('#revise_password').click(function(){
+			parent.layer.open({
+				type: 2,
+				title: '',
+				shadeClose: true,
+				shade: 0.8,
+				area: ['520px', '460px'],
+				content: 'revise_password.html' //iframe的url
+			}); 
+        });
+	})
+
+
+	/*引用layui*/
+	layui.use(['form', 'layedit', 'laydate','element','layer'], function(){
+      var form = layui.form
+      ,layer = layui.layer
+      ,layedit = layui.layedit
+      ,laydate = layui.laydate
+      ,$ = layui.jquery
+      ,element = layui.element;
+    })
+</script>
+</html>	

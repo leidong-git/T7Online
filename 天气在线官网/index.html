@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>index</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+  <link rel="stylesheet" type="text/css" href="js/layui/css/layui.css">
+  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="section">
+		<!-- head -->
+		<div class="head">
+			<div class="head_nr">
+				<img class="logo" src="images/logo.png">
+				<ul>
+					<li class="active" hsrc="index_home.html">首页</li>
+					<li hsrc="mobile_home.html">移动服务</li>
+					<li hsrc="data_supermarket.html">数据超市</li>
+<!-- 					<li hsrc="tool.html">天气插件</li>
+					<li hsrc="robot.html">保姆机器人</li> -->
+					<li hsrc="about.html">关于我们</li>
+					<div class="head_login active">
+						<div class="login_success">
+							<a href="javascript:;">18398989898</a>
+							<div class="login_home">
+								<ul>
+									<li hsrc="home.html">
+										<img class="wxz" src="images/index_home_icon.png">
+										<img class="xz" src="images/index_home_icon1.png">
+										<span>个人中心</span>
+									</li>
+									<li hsrc="order.html">
+										<img class="wxz" src="images/index_dd_icon.png">
+										<img class="xz" src="images/index_dd_icon1.png">
+										<span>我的订单</span>
+									</li>
+									<li id="Close_login">
+										<img class="wxz" src="images/index_close_icon.png">
+										<img class="xz" src="images/index_close_icon1.png">
+										<span>退出登录</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="login_error">
+							<a href="javascript:;" id="login">登录</a>
+							|
+							<a href="javascript:;" id="register">注册</a>
+						</div>
+					</div>
+				</ul>
+			</div>
+		</div>
+
+		<!-- 页面内容 -->
+		<iframe class="public" id="public" src="index_home.html" onLoad="iFrameHeight()" frameborder="0" scrolling="no"></iframe>
+
+		<!-- foot -->
+		<div class="foot">
+			<div class="foot_nr">
+				<div class="foot_content">
+					<div class="content_left">
+						<div class="foot_con_list">
+							<span>下载APP</span>
+							<a href="">Android</a></br>
+							<a href="">IOS</a></br>
+							<a href="">公众号</a>
+						</div>
+
+						<div class="foot_con_list">
+							<span>产品</span>
+							<a href="">数据超市</a></br>
+							<a href="">专家天气图</a></br>
+							<a href="">气象报幕</a></br>
+							<a href="">天气插件</a>
+						</div>
+
+						<div class="foot_con_list">
+							<span>天气在线</span>
+							<a href="">关于我们</a></br>
+							<a href="">加入我们</a></br>
+							<a href="">合作伙伴</a></br>
+							<a href="">案例介绍</a>
+						</div>
+
+						<div class="foot_con_list">
+							<span>专业气象</span>
+							<a href="">慧农宝</a></br>
+							<a href="">测风云</a></br>
+							<a href="">雷震子</a>
+						</div>
+
+						<div class="foot_con_list">
+							<span>行业</span>
+							<a href="">气象/新能源/海鲜/航空</a></br>				
+							<a href="">医疗/健康/建筑</a>
+						</div>
+					</div>
+
+					<div class="content_right">
+						<span>联系我们</span>
+						<ul>
+							<li>
+								<img src="images/us_sj.png">
+								<p>Tel：023-68071290</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18996383720</p>
+							</li>
+							<li>
+								<img src="images/us_xx.png">
+								<p>Mail：T7ol@server.com</p>
+							</li>
+							<li>
+								<img src="images/us_dw.png">
+								<p>Add：重庆市 · 渝中区 · 大坪</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="copyright">
+					<img src="images/logo_bai.png">
+					<span>Copyright © 2020 天气在线集团 | 重庆天气在线科技有限公司 | 渝ICP备 5198151号</span>
+					<i style="width: 0;height: 0; position: fixed;z-index: -1;" id="contract_nr"></i>
+					<i style="width: 0;height: 0; position: fixed;z-index: -1;" id="resize"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/layui/layui.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+
+		// 判断滚动条锚点添加悬浮框样式
+		window.onscroll = function(){
+	        var sry = window.scrollY;
+	        if(sry>72)
+	        {
+	            $('.head').addClass('head_nr_fixed');
+	        }else{
+	        	$('.head').removeClass('head_nr_fixed');
+	        }
+	    }
+
+	    /*导航跳转*/
+	 	$('.head_nr ul li').click(function(){
+	 		stopPropagation();
+	 		var Hsrc = $(this).attr('hsrc');
+	 		$(this).addClass('active');
+	 		$(this).siblings().removeClass('active');
+	 		$('.public').attr({'src':Hsrc});
+	 		setTimeout(function(){
+	 			$('.login_home ul li').removeClass('active');
+	 		},1000);
+	 		$('.login_success').removeClass('xz');
+	 		$('.login_home').fadeOut();
+	 	});
+
+	 	// 跳转服务协议（子页面调用）
+	 	$("#contract_nr").click(function(){
+	    	$('.public').attr({'src':'contract.html'});
+	    });
+
+	 	var navFix=$("#navHeight");
+        // $(document).scroll(function() {
+            
+        // })
+        $("iframe").contents().scroll(function(event){
+            console.log($(this).scrollTop());
+            if($(this).scrollTop()>467){
+                navFix.addClass("navFix");
+            } 
+            else{ 
+                navFix.removeClass("navFix");
+            }
+        });
+
+        // 登录弹窗
+        $('#login').click(function(){
+			layer.open({
+				type: 2,
+				title: '',
+
+				shadeClose: true,
+				shade: 0.8,
+				area: ['520px', '440px'],
+				content: 'login.html' //iframe的url
+			}); 
+        });
+
+        // 注册弹窗
+        $('#register').click(function(){
+			layer.open({
+				type: 2,
+				title: '',
+				shadeClose: true,
+				shade: 0.8,
+				area: ['520px', '650px'],
+				content: 'register.html' //iframe的url
+			}); 
+        });
+
+        // 账号点击
+        $('.login_success').on('click',function(){
+        	if($(this).hasClass('xz')){
+        		$(this).removeClass('xz');
+        		$('.login_home').fadeOut();
+        	}else{
+        		$(this).addClass('xz');
+        		$('.login_home').fadeIn();
+        	}
+        })
+	})
+
+
+	function stopPropagation(e) {  
+        e = e || window.event;  
+        if(e.stopPropagation) { //W3C阻止冒泡方法  
+            e.stopPropagation();  
+        } else {  
+            e.cancelBubble = true; //IE阻止冒泡方法  
+        }  
+    }
+
+	//获取iframe内容页面高度赋值给iframe
+	function iFrameHeight() {
+		// setTimeout(function(){
+	        var ifm= document.getElementById("public");
+	        var subWeb = document.frames ? document.frames["public"].document : ifm.contentDocument;
+	        if(ifm != null && subWeb != null) {
+	            ifm.style.height = 'auto';//关键这一句，先取消掉之前iframe设置的高度
+	            ifm.style.height = subWeb.body.scrollHeight+'px';
+	        }
+	    // },3000)
+    };
+
+    /*引用layui*/
+	layui.use(['form', 'layedit', 'laydate','element','layer'], function(){
+      var form = layui.form
+      ,layer = layui.layer
+      ,layedit = layui.layedit
+      ,laydate = layui.laydate
+      ,$ = layui.jquery
+      ,element = layui.element;
+    })
+
+	function data_hrcf(href){
+		var Hsrc = href;
+ 		$('.public').attr({'src':Hsrc});
+	}
+</script>
+</html>	
